@@ -1,0 +1,8 @@
+CONTRAPOS - derived rule, takes contrapositive of implication
+
+CONTRAPOS: thm -> thm
+
+	A ==> B
+    ---------------
+       ~B ==> ~A
+

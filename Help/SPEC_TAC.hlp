@@ -1,0 +1,14 @@
+SPEC_TAC - tactic, abstracts goal over term by universal elimination
+
+SPEC_TAC: (term * term) -> tactic
+	     t      x
+
+        A[t/x]
+     ============
+	!x.A
+
+All occurrences of x in A[t/x] must be within t.
+
+SEE ALSO
+
+FORALL_LEFT_TAC

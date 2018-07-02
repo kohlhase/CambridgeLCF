@@ -1,0 +1,8 @@
+DISCH_ALL - derived rule, discharges all assumptions of a theorem
+
+DISCH_ALL: thm -> thm
+
+	[A1,..., An] B
+-------------------------------
+    An ==> ... ==> A1 ==> B
+

@@ -1,0 +1,5 @@
+strip_exists - destructs an existential formula into (variable list, body)
+
+strip_exists : (form -> (term list * form))
+
+strip_exists  `?x1 ... xn. A`   --->   ([`x1`,...,`xn`], `A`)

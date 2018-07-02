@@ -1,0 +1,166 @@
+(*lcf-compat  
+This ML file, loaded into Cambridge LCF, restores considerable compatibility
+with Edinburgh LCF.  However it is perhaps more useful as documentation.*)
+
+
+val mlin = load;
+
+(*theory package:  thyfns*)
+val AXIOM = axiom
+and FACT = theorem
+and newfact = save_thm;
+
+(*nametype no longer exists; doesn't work*)
+val newtype = new_type
+and newaxiom = new_axiom
+and newparent = new_parent
+and newconstant = new_constant
+and newolinfix = new_paired_infix
+and newolcinfix = new_curried_infix;
+
+
+
+
+
+val phylumofterm = term_class
+and phylumofform = form_class;
+
+(*substitution functions:  subst*)
+val aconvterm = paired_aconv_term
+and aconvform = paired_aconv_form
+and termfrees = term_frees
+and formfrees = form_frees
+and termvars = term_vars
+and formvars = form_vars
+and substinterm = subst_term
+and substinform = subst_form
+and freeinterm tml u = exists (\t.paired_term_freein_term(t,u)) tml
+and freeinform tml w = exists (\t.paired_term_freein_form(t,w)) tml
+and variant (v,vl) = paired_variant(vl,v)
+;
+
+
+fun convert_occs substfn x_occs_y_list =
+    let val (x_list, occs_y_list) = split x_occs_y_list;
+        val (occs_list, y_list) = split occs_y_list
+    in  substfn occs_list (combine(x_list, y_list))  end;
+
+
+val substoccsinterm = convert_occs subst_occs_term
+and substoccsinform = convert_occs subst_occs_form;
+
+
+(*instantiation functions:  inst*)
+val typesinterm tyl tm = exists (fn ty => paired_type_in_term(ty,tm)) tyl
+and typesinform tyl fm = exists (fn ty => paired_type_in_form(ty,fm)) tyl
+and typesintype tyl ty0 = exists (fn ty => paired_type_in_type(ty,ty0)) tyl
+and termtyvars = term_tyvars
+and formtyvars = form_tyvars
+and typetyvars = type_tyvars
+and instintype = inst_type
+and instinterm = inst_term
+and instinform = inst_form;
+
+(*these are curried in new version*)
+val intersect(l1,l2) = filter (fn x => mem x l2) l1 ;
+val subtract(l1,l2) = filter (fn x => not mem x l2) l1 ;
+val union(l1,l2) = l1 @ subtract(l2,l1) ;
+
+(*inference rules*)
+val SYNTH (th1,th2) = SYNTH (CONJ th1 th2);
+val CONJ(th1,th2) = CONJ th1 th2;
+val TRANS(th1,th2) = TRANS th1 th2;
+val SEL1 = CONJUNCT1
+and SEL2 = CONJUNCT2;
+val AXTRUTH = TRUTH;
+val SUBSOCCS = SUBS_OCCS;
+val BETACONV = BETA_CONV;
+val ABS x th = HALF_MK_ABS (GEN x th);
+val LAMGEN x th = MK_ABS (GEN x th);
+val APTERM = AP_TERM
+and APTHM = AP_THM;
+val INSTTYPE = INST_TYPE;
+
+val formlfrees = forml_frees
+and formlvars = forml_vars
+and formltyvars = forml_tyvars;
+
+val admitsinduction = admits_induction;
+
+
+(*printing functions*)
+
+val printint x = (print_int x; x)
+and printtok x = (print_tok x; x)
+and printbool x = (print_bool x; x)
+and printdot x = (print_void x; x)
+and printterm x = (print_term x; x)
+and printform x = (print_form x; x)
+and printthm x = (print_thm x; x)
+and printtype x = (print_type x; x)
+and outtok x = (print_string x; x)
+;
+
+val typemode = show_types;
+
+val tokofint = tok_of_int
+and intoftok = int_of_tok;
+
+
+val mkequiv(t,u) = `^t == ^u`;
+val mkinequiv (t,u) = `^t << ^u`;
+val mkcond (p,x,y) = `^p => ^x | ^y`;
+val mkpair (x,y) = `^x, ^y`;
+
+
+val mkconj = mk_conj
+and mkimp = mk_imp
+and mkquant = mk_forall;
+
+val mkvar = mk_var
+and mkconst = mk_const
+and mkabs = mk_abs
+and mkcomb = mk_comb;
+
+val mkvartype = mk_vartype
+and mktype = mk_type;
+
+
+val isconj = is_conj
+and isimp = is_imp
+and isquant = is_forall;
+
+val isvar = is_var
+and isconst = is_const
+and isabs = is_abs
+and iscomb = is_comb;
+
+val isvartype = is_vartype;
+
+
+val destconj = dest_conj
+and destimp = dest_imp
+and destquant = dest_forall;
+
+val destvar = dest_var
+and destconst = dest_const
+and destabs = dest_abs
+and destcomb = dest_comb;
+
+val destvartype = dest_vartype
+and desttype = dest_type;
+
+
+val destequiv = dest_equiv
+and destinequiv = dest_inequiv
+and destpair = dest_pair;
+
+val typeof = type_of;
+
+
+val mlinfix = ml_paired_infix
+and mlcinfix = ml_curried_infix;
+
+
+val revitlist = rev_itlist
+and revassoc = rev_assoc;

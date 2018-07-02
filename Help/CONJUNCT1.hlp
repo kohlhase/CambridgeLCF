@@ -1,0 +1,9 @@
+CONJUNCT1 - rule, conjunction elimination, returns 1st conjunct
+
+CONJUNCT1: thm -> thm
+
+Conjunction elimination
+
+	A /\ B
+      ----------
+          A  

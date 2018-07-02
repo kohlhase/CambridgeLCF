@@ -1,0 +1,8 @@
+TRUTH	- PPLAMBDA axiom of truth
+
+TRUTH : thm
+
+
+Standard Tautology
+
+|- TRUTH()

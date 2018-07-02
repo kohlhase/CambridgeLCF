@@ -1,0 +1,23 @@
+PART_TMATCH - rule, instantiates theorem, matching a subterm
+
+PART_TMATCH : (form -> term) -> thm -> conv
+
+Calling
+
+    PART_TMATCH partfn A t
+
+matches the term t to some part of the theorem A obtained by the function
+partfn, and returns A with its types and variables instantiated.  The partfn
+is typically composed from destructor functions such as fst, dest_comb, and
+dest_equiv.  It is applied to the conclusion of the theorem after removing
+outer universal quantifiers.
+
+
+FAILURE CONDITIONS
+
+no match possible
+
+SEE ALSO 
+
+term_match		(for a longer description of matching)
+PART_FMATCH

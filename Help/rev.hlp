@@ -1,0 +1,5 @@
+rev	- reverses a list
+
+rev : ('a list -> 'a list)
+
+rev [x1,...,xm]   --->   [xm,...,x1]

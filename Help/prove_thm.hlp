@@ -1,0 +1,13 @@
+prove_thm - solves a goal using a tactic, stores a theorem
+
+prove_thm: (string * form * tactic) -> thm
+
+Proves a goal using a theorem (like TAC_PROOF), then saves it on the current
+theory file.  Useful in batch files that create theories.  Prints any goals
+that the tactic leaves unsolved.
+
+FAILURE CONDITIONS
+
+tactic fails
+tactic returns a non-empty subgoal list
+validation fails

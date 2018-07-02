@@ -1,0 +1,5 @@
+conjuncts - destructs a conjunction into a list of conjuncts
+
+conjuncts : (form -> form list)
+
+conjuncts  `A1 /\ ... /\ An`   --->  [`A1`,...,`An`]

@@ -1,0 +1,22 @@
+print_type - prints PPLAMBDA type
+
+print_type : type -> void
+
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_tok 
+print_bool 
+print_void 
+print_int
+print_term
+print_form 
+print_thm 
+print_theory
+show_types 

@@ -1,0 +1,8 @@
+MP_TAC	- tactic, adds theorem as antecedent to goal
+
+MP_TAC: thm -> tactic
+        |-A
+
+           B
+    ===============
+	A ==> B

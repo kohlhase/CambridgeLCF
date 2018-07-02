@@ -1,0 +1,5 @@
+map	- applies a function to every element of a list
+
+map : (('a -> 'b) -> 'a list -> 'b list)
+
+map f [x1,...,xm]    --->   [f x1,..., f xm]

@@ -1,0 +1,14 @@
+SPECL	- derived rule, specializes theorem to list of terms
+
+SPECL: (term list) -> thm -> thm
+       [t1,...,tn]
+
+
+	!x1 ... xn. A(xi)
+    --------------------------	
+	      A(ti)
+
+
+ML DEFINITION
+
+val SPECL = rev_itlist SPEC;

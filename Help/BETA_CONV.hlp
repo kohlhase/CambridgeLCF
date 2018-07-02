@@ -1,0 +1,10 @@
+BETA_CONV - rule, beta conversion
+
+BETA_CONV : term -> thm
+
+The axiom scheme of beta-conversion.  If x is a variable, and u, v are terms,
+and u[v/x] denotes the substitution of v for x in u, then
+
+BETA_CONV `(\x.u)v`     ---->    |-(\x.u)v == u[v/x]
+
+FAILS if input term is not of the form (\x.u)v 

@@ -1,0 +1,27 @@
+The Emacs package ml-mode provides
+    'a the ML syntax for identifiers (for forward-word, etc.)
+    'a bracket matching for both [] and ()
+    'a access to LCF's on-line Help system, displaying information in a Help 
+      window.
+
+Commands include
+
+(ml-mode)
+Invokes ML mode;  normally called via auto-execute on files with extension
+.ml .  (NOTE!!  This conflicts with the Emacs usage for .ml for Mlisp files!!)
+
+(lcf-help subject)
+Prompts for a subject, and displays the appropriate help file.
+
+(lcf-keyword keyword)
+Prompts for a keyword, and displays all matching lines in the index.
+
+(lcf-describe-word-in-buffer)
+Invokes lcf-help on the word pointed to.  Normally bound to ^X^D, overriding
+the usual describe-word-in-buffer.
+
+If ml-mode.ml has been installed in your site's Emacs maclib directory, you
+can use ml-mode by putting the following lines in your file .emacs_pro :
+
+(autoload `ml-mode` `ml-mode.ml`)
+(auto-execute `ml-mode` `'a.ml`)

@@ -1,0 +1,14 @@
+LIST_CONJ - derived rule, makes a conjunction from theorem list
+
+LIST_CONJ: (thm list) -> thm
+	       Ai
+
+
+	 A1 ... An
+    -------------------		where n>0
+      A1 /\ ... /\ An
+
+
+ML DEFINITION
+
+val LIST_CONJ = end_itlist CONJ ;

@@ -1,0 +1,10 @@
+MK_COMB	- PPLAMBDA rule, constructs equivalent combinations
+
+LE_MK_COMB: (thm * thm) -> thm
+
+	f =< g	
+	t =< u	
+   --------------
+     f t =< g u		<< unless both hypotheses use ==
+
+The symbol  =< stands for either of the relations == or <<.

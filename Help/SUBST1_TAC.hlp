@@ -1,0 +1,10 @@
+SUBST1_TAC - tactic, substitutes in goal using 1 equivalence
+
+SUBST1_TAC: thm -> tactic
+	   |-t==u
+
+	 B(t)
+    =============
+	 B(u)
+
+Useful with tacticals

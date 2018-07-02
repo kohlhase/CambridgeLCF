@@ -1,0 +1,11 @@
+HALF_MK_ABS - PPLAMBDA rule, (in)equivalent function and abstraction
+
+HALF_MK_ABS: thm -> thm
+
+     !x. u x =< t
+   ----------------
+       u =< \x.t
+
+This rule may be seen as converting the function/argument definition style
+into the lambda definition style.  The symbol  =< stands for either of the
+relations == or <<, the same at each occurence within the rule.

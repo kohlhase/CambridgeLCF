@@ -1,0 +1,14 @@
+CHOOSE	- rule, existential elimination
+
+CHOOSE: (term * thm) -> thm -> thm
+	  a
+
+
+
+Exists elimination
+
+	?x.A(x)     [ A(a) ] B
+    -------------------------------
+	         B
+
+where the variable `a` is not free anywhere except in B's assumption A(a)

@@ -1,0 +1,47 @@
+BASIC_STRUCT_TAC - structural induction tactic for deriving other tactics
+
+BASIC_STRUCT_TAC : string -> thm list -> tactic
+		    thy        thl
+
+
+			!x. A(x)
+    ======================================================
+		(TRUTH() ==> TRUTH() ==>  A(UU))
+		(TRUTH() ==> TRUTH() ==>  A(TIP))
+		(!a t.	(TRUTH() /\ ~ a==UU /\ ~ t==UU) ==>
+		    	(TRUTH() /\ A(t))  ==>
+		    	A(UNIT a t))
+		(!b t t1. 
+		    	(TRUTH() /\ ~ b==UU /\ ~ t==UU /\ ~ t1==UU) ==>
+		    	(TRUTH() /\ A(t) /\ A(t1))  ==>
+			A(BRANCH b t t1)
+
+Builds the structural induction tactic for the recursive data type declared in
+theory `thy` using gen_struct_axm (or struct_axm).  Once constructed, the
+tactic should be bound to an ML variable.  This avoids repeatedly constructing
+the tactic, which is slow since it involves loading information from theory
+`thy`.  The above goals are for the data type described in the help file for
+gen_struct_axm.  
+
+To exploit flatness or finiteness, the tactic accepts a list `thl` of theorems
+stating type properties, such as
+
+	FLAT{:'a}  ==>  FLAT{:'a list}
+
+When applied to a goal, the tactic instantiates the types as necessary,
+then `undischarges` all antecedents.  For a list of truth values this gives
+
+	[ FLAT{:tr} ]  |-  FLAT{:tr list}
+
+which is the form that INDUCT expects.  Here, FLAT{:'a} stands for the expanded
+formula		 !x y:'a. x<<y ==> UU==x  \/  x==y
+
+BASIC_STRUCT_TAC produces goals in a rigid format.  It is intended for writing
+other tactics, whle STRUCT_TAC is indended for interactive use.
+
+
+SEE ALSO
+
+STRUCT_TAC
+gen_struct_axm		(for a description of data structures in LCF)
+struct_axm

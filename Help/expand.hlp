@@ -1,0 +1,27 @@
+expand	- applies validated tactic to top goal on stack, pushes subgoals
+
+expand: tactic -> void
+(part of subgoal package)
+
+Expands the current goal:
+applies the tactic,
+validated using VALID.
+Prints resulting subgoals.
+If there are none,
+applies the validation,
+and those above it 
+whose subgoals have been proved.
+Prints the resulting theorems.
+
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+rotate
+backup
+save_top_thm
+top_goal
+get_state
+set_state
+print_state

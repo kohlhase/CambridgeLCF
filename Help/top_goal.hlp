@@ -1,0 +1,19 @@
+top_goal - returns top goal on stack
+
+top_goal: void -> goal
+(part of subgoal package)
+
+Returns the top goal of the proof state -- mainly useful to examine it after a
+proof fails, perhaps using asm_used_rewrites.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+save_top_thm
+backup
+get_state
+set_state
+print_state

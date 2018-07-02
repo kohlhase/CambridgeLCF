@@ -1,0 +1,22 @@
+close_theory - terminates extending a theory, writes it onto disc 
+
+EXAMPLE
+
+	close_theory();
+
+
+Writes the current draft (opened by new_theory or extend_theory) to a
+disc file.  The draft becomes a theory: no additional types, constants,
+predicates, parents, or axioms may be declared.
+
+FAILURE CONDITIONS
+
+no current draft (no previous new_theory or extend_theory?)
+
+
+SEE ALSO
+
+extend_theory
+load_theory 
+new_parent
+new_theory

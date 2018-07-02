@@ -1,0 +1,14 @@
+CONTR	- intuitionistic rule, contradiction
+
+CONTR: form -> thm -> thm
+	A
+
+
+
+Contradiction rule
+
+	FALSITY()
+    ---------------
+           A
+
+This is the intuitionistic contradiction rule;  CCONTR is the classical one.

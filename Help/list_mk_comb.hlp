@@ -1,0 +1,5 @@
+list_mk_comb - constructs a curried combination
+
+list_mk_comb : ((term * term list) -> term)
+
+list_mk_comb (`t`, [`u1`,...,`un`])   --->  `t u1 ... un`

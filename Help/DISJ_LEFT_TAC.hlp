@@ -1,0 +1,11 @@
+DISJ_LEFT_TAC - tactic, eliminates disjunctive assumption causing case split
+
+DISJ_LEFT_TAC: tactic
+
+     [ A\/B ] C
+======================
+ [ A ] C     [ B ] C
+
+It produces two subgoals in which the disjunctive assumption A\/B has been
+replaced by the assumption A or B.  Disjunction elimination is also available
+with STRIP_THM_TAC.

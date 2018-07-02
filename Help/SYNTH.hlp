@@ -1,0 +1,7 @@
+SYNTH	- PPLAMBDA rule, synthesis of an equivalence
+
+SYNTH: thm -> thm
+
+	t << u  /\  u << t
+    --------------------------
+	      t == u

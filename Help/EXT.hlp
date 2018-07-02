@@ -1,0 +1,10 @@
+EXT	- PPLAMBDA rule, extensionality (in)equivalence
+
+EXT: thm -> thm
+
+	!x. u x =< v x	
+    --------------------
+	    u =< v
+
+The symbol  =< stands for either of the relations == or <<, the same at each
+occurence within the rule.

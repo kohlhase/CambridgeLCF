@@ -1,0 +1,12 @@
+BUG: DOES NOT CHECK THEORY NAME
+
+! new_theory " not a good name ";
+- it = {} : unit
+
+! close_theory();
+- it = {} : unit
+
+! quit();
+steve:/bigdisc/lcp/newlcf$ ls *.th
+ not a good name .th
+-----------------------------------------------------------------------------

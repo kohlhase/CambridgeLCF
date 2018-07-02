@@ -1,0 +1,36 @@
+new_theory - opens a new theory as child of previous one
+
+EXAMPLE
+
+	new_theory "newt";
+	.
+	.
+	.
+	<declaration of new types, constants, parents, axioms,...>
+	.
+	.
+	.
+	close_theory();
+
+The theory "newt" is created and becomes the current draft.  The previous
+theory, often PPLAMB, becomes a parent of the new draft.  Between new_theory
+and close_theory you may declare operators of "newt" by invoking new_type,
+new_constant, new_curried_infix, new_paired_infix, new_predicate, new_axiom,
+new_closed_axiom, and new_parent.
+
+The theory is stored as the file newt.th on the user's directory.
+
+
+FAILURE CONDITIONS
+
+theory exists already
+theory name is unsuitable for a filename.
+
+SEE ALSO
+
+close_theory
+extend_theory 
+new_parent
+
+The file pplamb.ml, which defines PPLAMB, is an example of theory
+construction.

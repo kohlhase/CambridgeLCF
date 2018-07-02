@@ -1,0 +1,23 @@
+print_bool - prints true or false
+
+print_bool : bool -> void
+
+Prints the given boolean value as    true   or    false .
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_tok 
+print_void 
+print_int
+print_term
+print_form 
+print_type 
+print_thm 
+print_theory
+show_types 

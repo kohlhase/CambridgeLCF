@@ -1,0 +1,23 @@
+EXISTS	- rule, existential introduction
+
+EXISTS: (form * term) -> thm -> thm
+		 t
+
+
+
+Exists introduction
+
+	A(t)
+    -------------
+       ?x.A(x)
+
+
+You must tell the rule what its conclusion should look like, since it is
+rarely desirable to replace EVERY t by x.  For example, you can conclude two
+different results from the theorem `|-TT==TT`:
+
+EXISTS (`?x. x==TT`, `TT`)  (`|-TT==TT`)   --->  |-?x. x==TT
+
+or
+
+EXISTS (`?x. x==x`, `TT`)  (`|-TT==TT`)   --->  |-?x. x==x

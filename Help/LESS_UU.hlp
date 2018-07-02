@@ -1,0 +1,5 @@
+LESS_UU - PPLAMBDA theorem, minimality of UU
+
+LESS_UU : thm
+
+|-`!x:'a. x << UU:'a  <=>  x == UU:'a`

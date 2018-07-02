@@ -1,0 +1,5 @@
+FST_STRICT - PPLAMBDA theorem, FST is strict
+
+FST_STRICT : thm
+
+|-`FST (UU:'a * 'b) == UU:'a`

@@ -1,0 +1,10 @@
+CUT - derived rule (the cut rule), proves an assumption from a theorem
+
+CUT: thm -> thm -> thm
+      A      B
+
+
+	A	[A] B
+    ---------------------
+	     B
+

@@ -1,0 +1,12 @@
+INST_TYPE - rule, instantiating type variables in a theorem
+
+INST_TYPE (type * type)list -> thm -> thm
+	    tyi   vtyi
+
+Instantiation of Types
+
+	  A(vtyi)
+    -----------------
+	  A(tyi)
+
+where the type variables vtyi do not occur in the assumptions

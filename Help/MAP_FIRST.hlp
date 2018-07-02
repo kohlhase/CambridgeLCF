@@ -1,0 +1,11 @@
+MAP_FIRST - searching tactical, maps tactic function over list
+
+MAP_FIRST: ('a -> tactic) -> ('a list) -> tactic
+
+The tactic
+
+    MAP_FIRST tacf [x1,..., xn]  --->
+
+has the effect of
+
+    FIRST [tacf x1,..., tacf xn]

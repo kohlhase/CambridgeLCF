@@ -1,0 +1,36 @@
+new_parent - extends theory with new parent
+
+EXAMPLE
+
+	new_parent "oldt";
+
+
+The existing theory "oldt" is loaded and becomes a parent of the current
+draft.
+
+All parents of "oldt" are recursively loaded as well.  No type, constant,
+infix, or predicate of "oldt" may clash with a name already used. In case of
+failure, LCF recovers cleanly, `unloading` any theories it had loaded before
+detecting the failure.
+
+
+FAILURE CONDITIONS
+
+no current draft
+theory does not exist
+theory file damaged
+name clash between current draft and new parent
+
+BUGS
+
+The effect may not be permanently recorded until close_theory is invoked.
+
+
+SEE ALSO
+
+close_theory
+extend_theory 
+load_theory
+new_theory
+
+

@@ -1,0 +1,7 @@
+FIX_EQ	- PPLAMBDA axiom of fixed points
+
+FIX_EQ : thm
+
+Fixed points
+
+|- !f. FIX f == f (FIX f)

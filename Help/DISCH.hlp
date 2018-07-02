@@ -1,0 +1,22 @@
+DISCH	- rule, implication introduction, discharges an assumption
+
+DISCH: form -> thm -> thm
+	A
+
+
+
+Implication introduction
+
+       [ A ]  B
+    --------------
+	A ==> B
+
+
+
+Also, since the negation ~A abbreviates the implication  A ==> FALSITY ,
+
+Negation introduction
+
+       [ A ]  FALSITY()
+    ---------------------
+           ~A

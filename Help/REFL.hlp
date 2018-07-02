@@ -1,0 +1,6 @@
+REFL	- PPLAMBDA rule, reflexivity of equivalence
+
+REFL: term -> thm
+
+REFL `t`   --->    |-`t==t`
+

@@ -1,0 +1,3 @@
+type_in_form - PPLAMBDA relation, whether a type occurs within a formula
+
+type_in_form : (type -> form -> bool)

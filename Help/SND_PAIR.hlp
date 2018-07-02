@@ -1,0 +1,7 @@
+SND_PAIR - PPLAMBDA axiom defining SND on pairs
+
+SND_PAIR : thm
+
+Ordered pairs
+
+|- !x y. SND (x,y) == y

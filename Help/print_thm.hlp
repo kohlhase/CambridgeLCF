@@ -1,0 +1,34 @@
+print_thm - prints PPLAMBDA theorem
+
+print_thm : thm -> void
+
+The printing of types of subterms is controlled by show_types.  Normally types
+are not printed.  Each hypothesis (assumption) is printed as a dot.  Use hyp
+to see the hypotheses.
+
+EXAMPLE	
+
+    *val th = ASSUME `TT==FF`;
+    th = .|-`TT == FF` : thm
+    
+    *hyp th;
+    [`TT == FF`] : form list
+
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_tok 
+print_bool 
+print_void 
+print_int
+print_term
+print_type 
+print_form
+print_theory
+show_types 

@@ -1,0 +1,5 @@
+strip_abs - destructs a curried abstraction into (variable list, body)
+
+strip_abs : (term -> (term list * term))
+
+strip_abs  `\x1 ... xn. t`   --->   ( [`x1`,...,`xn`], `t` )

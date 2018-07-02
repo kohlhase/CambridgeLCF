@@ -1,0 +1,13 @@
+words	- lists the words in a string separated by blanks
+
+words : string -> (string list)
+
+
+Allows easy writing of lists of strings, similar to the ""..."" syntax of
+Edinburgh LCF.
+
+EXAMPLE
+
+    words "are you there" 
+
+returns the list  ["are"; "you"; "there"]

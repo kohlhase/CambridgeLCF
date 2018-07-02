@@ -1,0 +1,7 @@
+LESS_EXT - PPLAMBDA axiom, extensionality of inequivalence for functions
+
+LESS_EXT : thm
+
+Extensionality of <<
+
+|- !f g. (!x. f x << g x)  ==>  f<<g

@@ -1,0 +1,7 @@
+print_theory - prints types, axioms, theorems, etc. of theory
+
+print_theory : string -> void
+
+Typing   print_theory "thy";   prints all constituents of the named theory on
+the terminal.  The theory must be loaded into LCF.  Note that
+print_theory "-";   prints the current theory.

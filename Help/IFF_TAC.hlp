@@ -1,0 +1,7 @@
+IFF_TAC	- tactic, splits iff-formula in two
+
+IFF_TAC: tactic
+
+	       A <=> B
+    ==============================
+       A ==> B		B ==> A

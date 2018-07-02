@@ -1,0 +1,40 @@
+.TH lcf 1 
+.SH NAME
+lcf - Cambridge LCF 
+.SH SYNOPSIS
+lcf
+.SH DESCRIPTION
+Cambridge LCF is an interactive
+theorem prover.
+Proofs are conducted in PPLAMBDA,
+a natural deduction logic based on the domain theory of Dana Scott.
+PPLAMBDA is particularly suitable for proofs
+involving denotational semantics, lazy evaluation, or higher-order functions.
+LCF provides a metalanguage (Standard ML),
+a functional programming language
+whose values include PPLAMBDA terms, formulas, and theorems.
+Theorem-proving primitives such as inference rules,
+subgoaling strategies (tactics),
+and simplifiers are implemented as ML functions.
+The user can extend LCF by programming in ML.
+.SH SEE ALSO
+sml(1)
+.br
+L. C. Paulson, \fILogic and Computation\fR (Cambridge University Press, 1987)
+.SH BUGS
+An exhaustive test is not made on matches. This means that the interpreter
+will raise the exception "match" without giving a warning at compile-time.
+.br
+Modules and I/O are not implemented in this version.
+.br
+Please report bugs to:
+.LP
+Brian Ritchie
+.br
+Software Engineering Group
+.br
+Rutherford Appleton Lab
+.br
+Didcot OX11 0QX
+.br
+England

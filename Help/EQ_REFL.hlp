@@ -1,0 +1,6 @@
+EQ_REFL	- PPLAMBDA theorem, equivalence is reflexive
+
+EQ_REFL : thm
+
+
+|-`!x:'a. x == x:'a`

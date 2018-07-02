@@ -1,0 +1,9 @@
+NO_TAC	- tactic, always fails, identity for ORELSE
+
+NO_TAC: tactic
+
+Always fails with string "NO_TAC".
+
+SEE ALSO
+
+FAIL_TAC

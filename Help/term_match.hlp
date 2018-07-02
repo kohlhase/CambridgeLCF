@@ -1,0 +1,26 @@
+term_match - matches term against another, returns instantiation
+
+term_match : term -> term -> ((term * term) list * (type * type) list)
+
+If pattern and object are terms, the call
+
+    term_match pattern object
+
+returns a list of (term,variable) pairs, along with a list of (type, type
+variable) pairs.  This expresses the object as an instance of the pattern
+(allowing for renaming of bound variables).  Most rewriting functions depend
+on the matching functions term_match and form_match.
+
+FAILURE CONDITIONS
+
+no match possible
+
+
+SEE ALSO 
+
+form_match
+
+L.C. Paulson,
+A higher-order implementation of rewriting,
+Science of Computer Programming 3 (1983),
+pages 119-149.

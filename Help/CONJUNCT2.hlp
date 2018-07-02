@@ -1,0 +1,9 @@
+CONJUNCT2 - rule, conjunction elimination, returns 2nd conjunct
+
+CONJUNCT2: thm -> thm
+
+Conjunction elimination
+
+	A /\ B
+      ----------
+          B  

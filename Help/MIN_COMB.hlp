@@ -1,0 +1,5 @@
+MIN_COMB - PPLAMBDA theorem, applying the function UU
+
+MIN_COMB : thm
+
+|-`!x:'a. UU (x:'a) == UU:'b`

@@ -1,0 +1,11 @@
+MATCH_MP - rule, matching modus ponens, instantiates implication
+
+MATCH_MP : thm -> thm -> thm
+
+This is a Modus Ponens that
+matches an implication to an antecedent.
+Calling
+
+  MATCH_MP  `|-!x1...xn. A ==> B`  `|-A'`,
+
+where A' is an instance of A, returns the corresponding instance of B.

@@ -1,0 +1,26 @@
+print_string - prints a literal string (without enclosing quotes)
+
+print_string : (string -> void)
+
+`print_string string` sends `string` to the current queue of output to be
+pretty printed.  The string should NOT contain carriage-returns, since this
+makes the pretty printer lose track of the current cursor position.  Instead
+call print_newline.
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_tok 
+print_bool 
+print_void 
+print_int
+print_term
+print_form 
+print_type 
+print_thm 
+print_theory
+show_types 

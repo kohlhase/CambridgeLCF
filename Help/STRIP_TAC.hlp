@@ -1,0 +1,8 @@
+STRIP_TAC - tactic, strips 1 outer forall, conj, imp from goal
+
+STRIP_TAC: tactic
+
+This is for breaking a goal apart.  STRIP_TAC removes one outer connective
+from the goal, using CONJ_TAC, DISCH_TAC, or GEN_TAC.  If the goal is an
+implication A==>B, it applies DISCH_TAC -- then uses STRIP_THM_TAC to break
+up the antecedent A, putting the pieces in the assumption list.

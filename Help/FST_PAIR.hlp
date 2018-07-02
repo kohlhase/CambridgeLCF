@@ -1,0 +1,7 @@
+FST_PAIR - PPLAMBDA axiom defining FST on pairs
+
+FST_PAIR : thm
+
+Ordered pairs
+
+|- !x y. FST (x,y) == x

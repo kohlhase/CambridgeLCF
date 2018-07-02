@@ -1,0 +1,44 @@
+****************************************************************************
+*									   *
+*	HELP								   *
+*									   *
+****************************************************************************
+help -- directory of on-line documentation
+
+This directory contains the information for the entries in help.
+help : string -> unit is available as a function in LCF.
+
+This directory is currently out of date.  It contains the help files from the
+old Cambridge LCF system.  Some new features are undocumented and some old ML
+syntax is used.
+
+This Help Directory contains the following files
+
+*.hlp -- help entries 
+Makefile -- to make lcf.kwic and subjects.hlp
+unsorted-lcf.kwic -- unsorted keyword file for LCF
+lcf.kwic -- sorted keyword file
+ml-mode.mlisp -- Gosling Emacs file implementing an "ML/LCF" mode
+Readme -- this file
+
+The unsorted file is organized by "concept" (namely location of definition in
+the source files).  The sorted file is alphabetic.  I am not sure which is
+more useful.  The unsorted file is the master.  Type "make" after editing
+any Help files.
+
+The Emacs ML mode (ml-mode.mlisp) is unsupported, because of the many different
+versions in existence.  It is based on a simple idea, so local Emacs experts
+should have no problems modifying it to work on their system.
+
+Be sure to keep this on-line documentation up-to-date if you extend the
+system!  If you change unsorted-lcf.kwic or add/delete help files, run the
+script build.sh afterwards.
+
+The help files have long names.  Though Unix 4.1 truncates filenames to 14
+characters, nearly all of the files are unique in the first 14 characters, so
+the Help system should work.  If you later switch to a Unix that allows longer
+filenames, you must extend these filenames to the new limit; otherwise the
+Help system will not find them.  The easiest way to switch is to read the
+LCF distribution tape again: so save this tape.
+
+L C Paulson

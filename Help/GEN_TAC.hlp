@@ -1,0 +1,10 @@
+GEN_TAC - tactic, strips universal quantifier choosing variable
+
+GEN_TAC: tactic
+
+  !x.A(x)
+ =========
+   A(x')
+
+chooses x' as a variant of x not free in goal or assumptions
+

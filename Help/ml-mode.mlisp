@@ -1,0 +1,85 @@
+; ml-mode : provides bracket-matching for both () and [].
+; by L.C. Paulson
+
+; The Emacs versions of LCF help commands
+;     put the help information into a separate window.
+; lcf-help prompts for a subject, and displays the appropriate help file.
+; lcf-keyword prompts for a keyword, and displays all matching lines in the
+;     index.
+; lcf-describe-word-in-buffer invokes lcf-help on the word pointed to.
+
+(declare-global lcf-help-directory)
+(setq lcf-help-directory "/usr/lib/lcf/help/")
+
+(defun 
+    (ml-mode
+	(local-bind-to-key "bracket-pause" ')')
+	(local-bind-to-key "bracket-pause" ']')
+	(local-bind-to-key "forward-paren"  "\e)")
+	(local-bind-to-key "backward-paren"   "\e(")
+	(local-bind-to-key "lcf-describe-word-in-buffer" "\^X\^D")
+	(setq mode-string "ml")
+	(use-syntax-table "ml")
+	(novalue))
+
+    (bracket-pause dot instabs
+	(setq instabs (bolp))
+	(setq dot (dot))
+	(insert-character (last-key-struck))
+	(save-excursion
+	    (backward-paren)
+	    (if instabs (save-excursion descol
+			    (setq descol (current-column))
+			    (goto-character dot)
+			    (to-col descol)))
+	    (if (dot-is-visible)
+		(sit-for 5)
+		(progn
+		      (beginning-of-line)
+		      (set-mark)
+		      (end-of-line)
+		      (message (region-to-string)))
+	)))
+
+    (lcf-help subject hfile
+	   (setq subject (arg 1 "Help on: "))
+	   (setq hfile (concat lcf-help-directory subject ".hlp"))
+	   (if (file-exists hfile)
+	       (progn (pop-to-buffer " LCF Help ")
+		      (erase-buffer)
+		      (insert-file hfile)
+		      (setq buffer-is-modified 0))
+	       (error-message "No LCF help for " subject))
+	   (novalue ))
+    
+    (lcf-keyword keyword
+	(setq keyword (arg 1 "Keyword: "))
+	(pop-to-buffer " LCF Help ")
+	(erase-buffer)
+	(set-mark)
+	(insert-file (concat lcf-help-directory "lcf.kwic"))
+	(end-of-file)
+	(fast-filter-region (concat "fgrep " keyword))
+	(setq buffer-is-modified 0)
+	(novalue))
+
+    (lcf-describe-word-in-buffer
+	(save-excursion 
+	    (error-occurred (forward-character))
+	    (backward-word)
+	    (set-mark)
+	    (forward-word)
+	    (lcf-help (region-to-string)))))
+
+
+
+(use-syntax-table "ml")
+(modify-syntax-entry "w    _") 
+(modify-syntax-entry "w    '") 
+(modify-syntax-entry "(]   [")  
+(modify-syntax-entry ")[   ]") 
+(modify-syntax-entry "()   (")  
+(modify-syntax-entry ")(   )") 
+(modify-syntax-entry """    """)
+(modify-syntax-entry """    `")
+(novalue)

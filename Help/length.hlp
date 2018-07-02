@@ -1,0 +1,5 @@
+length	- returns the length of a list
+
+length : ('a list -> int)
+
+length [x1,...,xm]    ---->    m

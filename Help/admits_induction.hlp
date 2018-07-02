@@ -1,0 +1,11 @@
+admits_induction - tests if formula admits induction given type properties
+
+admits_induction : (thm list -> form -> term -> bool)
+			thl       A       x
+
+Given a list of theorems stating finiteness or chain-finiteness of types,
+admits_induction tests whether the formula `A` admits fixed-point induction in
+the variable `x`.  Admissability is discussed in the book
+
+L.C. Paulson, Logic and Computation (Cambridge University Press, 1987)
+

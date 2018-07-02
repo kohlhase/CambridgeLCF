@@ -1,0 +1,9 @@
+hyp	- theorem destructor, returns assumptions
+
+hyp : thm -> form list
+
+Returns the hypotheses of a theorem.
+
+EXAMPLE
+
+hyp (ASSUME `p==TT`)    --->    [`p == TT`] 

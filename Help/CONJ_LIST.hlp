@@ -1,0 +1,21 @@
+CONJ_LIST - derived rule, breaks conjunction into theorem list
+
+CONJ_LIST : int -> thm -> thm list
+
+CONJ_LIST n `|- A1 /\ (...(... /\ An)...)`   ---> 
+	      [ `|-A1`,..., `|-An`]
+
+
+      A1 /\ ... /\ An
+    -------------------		where n>0
+	 A1 ... An
+
+
+This is a (reliable) inverse of LIST_CONJ : it flattens only right conjuncts.
+You must specify n, since An could itself be a conjunction.  Mainly useful for
+ML programming.
+
+
+SEE ALSO
+
+CONJUNCTS

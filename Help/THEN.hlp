@@ -1,0 +1,27 @@
+THEN	- tactical, applies 2 tactics in sequence
+
+THEN  : tactic -> tactic -> tactic
+(infix)
+
+The tactic (tac1 THEN tac2) applies tac1 to the goal, then applies tac2 to
+the resulting subgoals, and returns a flattened list of the subgoals of the
+subgoals.  Its validation composes tac1's validation with those returned by
+tac2 for each of the subgoals.  If tac1 returns an empty subgoal list, then
+tac2 is never invoked.  The tactic fails if tac1 or tac2 does.
+
+THEN actually has a more general type, and can be used for `tactic-like`
+functions, as mentioned in the Edinburgh LCF manual.
+
+THEN : (('a -> ('b list * ('c list -> 'd))) ->
+	('b -> ('e list * ('f list -> 'c))) ->
+	'a ->
+	('e list * ('f list -> 'd)))
+
+SEE ALSO
+
+ORELSE
+REPEAT
+THENL
+EVERY
+EVERY_ASSUM
+MAP_EVERY

@@ -1,0 +1,6 @@
+MIN_ABS	- PPLAMBDA theorem, abstraction over UU
+
+MIN_ABS : thm
+
+
+|-`\x.UU == UU:'a -> 'b`

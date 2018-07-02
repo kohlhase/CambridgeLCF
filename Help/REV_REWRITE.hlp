@@ -1,0 +1,7 @@
+REV_REWRITE - derived rule, reverses orientation of term/formula rewrite
+
+REV_REWRITE: thm -> thm
+
+Given a theorem stating t==u or A<=>B, possibly with quantifiers and
+antecedents, REV_REWRITE returns a logically equivalent theorem stating u==t
+or B<=>A.

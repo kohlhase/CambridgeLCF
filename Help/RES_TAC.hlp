@@ -1,0 +1,6 @@
+RES_TAC	- tactic, resolves assumptions against each other
+
+RES_TAC: tactic
+
+RES_TAC calls IMP_RES_TAC for all the implications it finds in the assumption
+list, introducing the results from each invocation of resolution.

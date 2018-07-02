@@ -1,0 +1,22 @@
+backup	- restores goal stack from previous expand, set_goal, set_state
+
+backup: void -> void
+(part of subgoal package)
+
+Allows backing up from last state change.  The assignable variable backup_min,
+initially 12, is the maximum number of proof states saved on the backup list.
+You may backup repeatedly until the list is exhausted; backing up discards the
+current state.
+
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+save_top_thm
+top_goal
+get_state
+set_state
+print_state

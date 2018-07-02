@@ -1,0 +1,19 @@
+EVERY	- sequencing tactical, applies every tactic in succession
+
+EXAMPLE
+
+	EVERY [tac1, tac2, tac3]
+
+This is equivalent to 
+
+	tac1 THEN (tac2 THEN (tac3 THEN ALL_TAC))
+
+Stylistically, EVERY plays a similar role to an Algol 'begin-end' block.
+It is more useful when applied to a function that produces a list of tactics.
+
+
+SEE ALSO
+
+FIRST
+MAP_EVERY
+EVERY_ASSUM

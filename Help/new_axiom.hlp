@@ -1,0 +1,51 @@
+new_axiom - extends theory with new axiom
+
+EXAMPLE
+
+	new_axiom ("commute", `OP m n == OP n m`);
+
+The axiom "commute" is added to the current draft.  The formula is
+generalized over its free variables.  If m and n are variables, and OP is a
+constant, then the axiom is stored as
+
+	!m n. OP m n == OP n m.
+
+The axiom may be retrieved by calling
+
+	axiom "-" "commute"
+
+or, if the current draft is named "mydraft",
+
+	axiom "mydraft" "commute".
+
+Binding the result of new_axiom to an ML variable makes it easy to recover
+the axiom in the current terminal session.
+
+FAILURE CONDITIONS
+
+no current draft
+name already used as the name of another axiom in this theory
+
+BUGS
+
+The order of generalizing free variables is not predictable.
+
+If you forget to declare a constant, new_axiom will treat it like a variable,
+without any warning.  For instance, the axiom above could become
+
+	!OP m n. OP m n == OP n m.
+
+It is safer to call new_closed_axiom, which does not generalize the formula,
+insisting that all variables be bound already.
+
+
+SEE ALSO
+
+close_theory
+new_closed_axiom
+new_constant
+new_curried_infix
+new_paired_infix
+new_parent
+new_predicate
+new_type

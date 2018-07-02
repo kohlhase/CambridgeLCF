@@ -1,0 +1,4 @@
+append	- appends two lists
+
+append : ('a list -> 'a list -> 'a list)
+

@@ -1,0 +1,40 @@
+save_thm - records a theorem on current theory
+
+EXAMPLE
+
+	val th = ...;	 (*  ~ k==UU  |-  OP (OP k m) n == OP k (OP m n)  *)
+
+	save_thm ("assoc", th);
+
+LCF records the theorem "assoc" is recorded in the current draft or theory,
+after discharging all assumptions and generalizing over all free variables.
+If m and n are variables, and OP is a
+constant, then the theorem is stored as
+
+    !k m n. k==UU  ==>  OP (OP k m) n == OP k (OP m n)
+
+
+The theorem may be retrieved by calling
+
+	theorem "-" "assoc"
+
+or, if the current theory is named "mytheory",
+
+	theorem "mytheory" "assoc".
+
+Binding the result of save_thm to an ML variable makes it easy to recover
+the theorem in the current terminal session.
+
+
+FAILURE CONDITIONS
+
+name already used as the name of another theorem in this draft/theory
+
+BUGS
+
+The order of generalizing free variables is not predictable.
+
+SEE ALSO
+
+new_axiom
+new_closed_axiom

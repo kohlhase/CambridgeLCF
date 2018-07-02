@@ -1,0 +1,23 @@
+print_tok - prints a token (with quotes)
+
+print_tok : (string -> void)
+
+Like print_string, but prints quotes " " around the string.
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_bool 
+print_void 
+print_int
+print_term
+print_form 
+print_type 
+print_thm 
+print_theory
+show_types 

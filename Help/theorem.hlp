@@ -1,0 +1,25 @@
+theorem - returns a theorem from a theory
+
+EXAMPLE
+
+	theorem "PPLAMB" "EQ_TRANS";
+
+	theorem "-" "assoc";
+
+
+Loads the theorem "EQ_TRANS" from the theory "PPLAMB", and loads the
+theorem "assoc" from the current draft/theory.
+
+
+FAILURE CONDITIONS
+
+theory does not exist
+theory file damaged
+theorem does not exist on given theory
+
+SEE ALSO
+
+axiom
+axioms
+theorems
+

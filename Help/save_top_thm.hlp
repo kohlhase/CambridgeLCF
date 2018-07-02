@@ -1,0 +1,19 @@
+save_top_thm - saves top theorem on goal stack on theory file
+
+save_top_thm: token -> thm
+(part of subgoal package)
+
+Saves the top theorem on the goal stack onto a theory file.  Generally used
+only to save the final theorem, not intermediate ones in the proof.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+backup
+top_goal
+get_state
+set_state
+print_state

@@ -1,0 +1,38 @@
+new_closed_axiom - extends theory with new axiom (fails if free variables)
+
+EXAMPLE
+
+	new_closed_axiom ("commute", `!m n. OP m n == OP n m`);
+
+The axiom "commute" is added to the current draft.  The formula must not
+contain free variables.  (This catches undeclared constants and other errors.)
+
+The axiom may be retrieved by calling
+
+	axiom "-" "commute"
+
+or, if the current draft is named "mydraft",
+
+	axiom "mydraft" "commute".
+
+Binding the result of new_closed_axiom to an ML variable makes it easy to
+recover the axiom in the current terminal session.
+
+
+FAILURE CONDITIONS
+
+no current draft
+name already used as the name of another axiom in this theory
+axiom contains free variables
+
+
+SEE ALSO
+
+close_theory
+new_axiom
+new_constant
+new_curried_infix
+new_paired_infix
+new_parent
+new_predicate
+new_type

@@ -1,0 +1,7 @@
+TR_CASES - PPLAMBDA axiom enumerating the three truth values
+
+TR_CASES : thm
+
+Truth values
+
+|- !p:tr. p==UU  \/  p==TT  \/  p==FF

@@ -1,0 +1,12 @@
+AP_THM	- PPLAMBDA rule, applies an (in)equivalence to a term
+
+AP_THM: thm -> term -> thm
+	 	t
+
+
+	u =< v
+    --------------
+      u t =< v t
+
+The symbol  =< stands for either of the relations == or <<, the same at each
+occurence within the rule.

@@ -1,0 +1,7 @@
+DISJ2_TAC - tactic, selects 2nd disjunct of disjunctive goal
+
+DISJ2_TAC: tactic
+
+     A \/ B
+   ==========
+	B

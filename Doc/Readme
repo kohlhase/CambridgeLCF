@@ -1,0 +1,11 @@
+*******************************************************************************
+*	DOC								      *
+*									      *
+******************************************************************************
+
+This directory contains some systems information but should also be used 
+for recording any changes of the sources. 
+The directory contains the following files:
+
+dml.ms : information how to define SML primitives in Lisp.
+type.ms : internal representation of SML types.

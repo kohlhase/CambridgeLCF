@@ -1,0 +1,25 @@
+.TH sml 1
+.SH NAME
+sml \- Standard ML Interpreter
+.SH SYNOPSIS
+.B sml
+.SH DESCRIPTION
+\fIStandard ML\fR is a statically scoped interactive functional language.
+The language has a strong polymorhic type system that allows many bugs
+to be caught at compile-time. Functions can be passed as parameters, 
+returned as results and be embedded in data structures. The exception
+mechanism allows a program to handle exceptions raised either by the
+system or the program itself. The language acts as a metalanguage in the
+theorem proving system LCF.
+.SH AUTHOR
+Mikael Hedlund, Rutherford Appleton Lab.
+.SH "SEE ALSO"
+.IR lcf(1)
+.br
+A Wikstrom, \fIFunctional Programming using Standard ML\fR
+(Prentice Hall, 1987)
+.SH Bugs
+An exhaustive test is not made on matches. This means that the interpreter
+will raise the exception "match" without giving a warning at compile-time.
+.br
+Modules and I/O are not implemented in this version.

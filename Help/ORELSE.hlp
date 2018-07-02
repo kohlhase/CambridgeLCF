@@ -1,0 +1,25 @@
+ORELSE	- tactical, applies 1st tactic, if failure, applies 2nd
+
+ORELSE : tactic -> tactic -> tactic
+(infix)
+
+The tactic (tac1 ORELSE tac2) applies tac1 to the goal, returning the subgoals
+and validation.  If tac1 fails then the tactic calls tac2.  If tac2 also
+fails, then the entire tactic fails.
+
+ORELSE actually has a more general type, and can be used to `combine the
+domains` of two functions of the same type.
+
+ORELSE : (('a -> 'b) -> ('a -> 'b) -> 'a -> 'b)
+
+SEE ALSO
+
+REPEAT
+THEN
+THENL
+EVERY
+EVERY_ASSUM
+MAP_EVERY
+FIRST
+FIRST_ASSUM
+MAP_FIRST

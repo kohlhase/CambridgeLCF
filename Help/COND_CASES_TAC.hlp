@@ -1,0 +1,11 @@
+COND_CASES_TAC - tactic, finds condition in goal, causes case split
+
+(searches goal for a conditional and expands the three cases)
+
+COND_CASES_TAC: tactic
+
+	A(p=>t|u)
+    =================
+      [p==UU] A(UU)
+      [p==TT] A(t)
+      [p==FF] A(u)

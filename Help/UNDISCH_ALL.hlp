@@ -1,0 +1,14 @@
+UNDISCH_ALL - derived rule, un-discharges all antecedents of an implication
+
+UNDISCH_ALL: thm -> thm
+
+	A1 ==> ... ==> An ==> B
+    -------------------------------
+	   [A1,..., An] B
+
+
+ML DEFINITION
+
+fun UNDISCH_ALL th =
+    if is_imp (concl th)  then  UNDISCH_ALL (UNDISCH th)
+    else th;

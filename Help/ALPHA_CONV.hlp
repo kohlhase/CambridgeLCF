@@ -1,0 +1,10 @@
+ALPHA_CONV - PPLAMBDA rule, alpha-conversion, renames lambda variable
+
+ALPHA_CONV: term -> conv
+ALPHA_CONV: term -> term -> thm
+	     x	   (\y.t)
+
+
+
+    --------------------------
+	\y.t == \x. t[x/y]

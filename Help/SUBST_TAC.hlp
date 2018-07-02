@@ -1,0 +1,8 @@
+SUBST_TAC - tactic, substitutes in goal
+
+SUBST_TAC: (thm list) -> tactic
+for theorems [|-t1==u1,..., |-tn==un]
+
+       A(t1, ..., tn)
+    ===================== 
+       A(u1, ..., un)

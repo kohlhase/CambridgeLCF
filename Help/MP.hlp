@@ -1,0 +1,17 @@
+MP	- rule, implication elimination, performs modus ponens
+
+MP: thm -> thm -> thm
+
+Implication elimination
+
+	A ==> B       A
+    ------------------------
+               B
+
+Also, since the negation ~A abbreviates the implication  A ==> FALSITY ,
+
+Negation elimination
+
+	~A      A
+    -----------------
+        FALSITY()

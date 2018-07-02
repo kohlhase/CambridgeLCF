@@ -1,0 +1,14 @@
+form_match - matches formula against another, returns instantiation
+
+form_match : form -> form -> ((term * term) list * (type * type) list)
+
+Like term_match, but matches formulas instead of terms.
+
+FAILURE CONDITIONS
+
+no match possible
+
+
+SEE ALSO 
+
+term_match		(for a longer description of matching)

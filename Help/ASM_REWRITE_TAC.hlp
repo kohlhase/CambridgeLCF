@@ -1,0 +1,6 @@
+ASM_REWRITE_TAC - tactic, rewrites goal using theorems and assumptions
+
+ASM_REWRITE_TAC: (thm list) -> tactic
+
+Like REWRITE_TAC, but adds the current assumptions to the list of theorems
+given for rewriting.

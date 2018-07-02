@@ -1,0 +1,18 @@
+print_state - prints levels of goal stack
+
+print_state: int -> void
+(part of subgoal package)
+
+Calling (print_state n) prints n levels of the goal stack.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+backup
+save_top_thm
+top_goal
+get_state
+set_state

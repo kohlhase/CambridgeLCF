@@ -1,0 +1,3 @@
+type_in_term - PPLAMBDA relation, whether a type occurs within a term
+
+type_in_term : (type -> term -> bool)

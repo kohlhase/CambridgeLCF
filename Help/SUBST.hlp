@@ -1,0 +1,15 @@
+SUBST	- rule, simultaneous substitution using a pattern
+
+SUBST: (thm * term)list -> form -> thm -> thm
+	       xi	   A(xi)
+
+
+
+Simultaneous Substitution
+
+	ti == ui    A(ti)
+    -------------------------
+	    A(ui)
+
+The formula A(xi) serves as a template to control the subtitution;
+the variables xi mark the places where substitution should occur.

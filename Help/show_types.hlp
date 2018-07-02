@@ -1,0 +1,21 @@
+show_types - turns printing of PPLAMBDA types (in terms) on/off
+
+show_types : bool -> bool
+
+Normally PPLAMBDA types are not printed, since this makes terms hard to read.
+Type printing is enabled by `show_types(true);`, disabled by
+`show_types(false);`. 
+
+
+EXAMPLE
+
+    ! EQ_EXT;
+    |-`!f g. (!x. f x == g x)  ==>  f == g` : thm
+
+    ! show_types true;
+    true : bool
+
+    ! EQ_EXT;
+    |-`!f:'a -> 'b g:'a -> 'b.
+	(!x:'a. (f:'a -> 'b) x == (g:'a -> 'b) x)  ==>  f == g:'a -> 'b`
+    : thm

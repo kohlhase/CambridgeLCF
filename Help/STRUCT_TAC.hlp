@@ -1,0 +1,25 @@
+STRUCT_TAC - structural induction tactic for interactive use
+
+STRUCT_TAC : string -> thm list -> term -> tactic
+   	      thy        thl        x
+
+
+			... !x. A(x)
+    ======================================================
+			A(UU)
+			A(TIP)
+	[~ a==UU, ~ t==UU, A(t)]  A(UNIT a t)
+	[~ b==UU, ~ t==UU, ~ t1==UU, A(t), A(t1)]  A(BRANCH b t t1)
+
+Structural induction tactic for interactive use.  It splits up the goal,
+searching for the quantified variable `x`.  Then it calls BASIC_STRUCT_TAC for
+induction on the subformula !x.A, putting subgoals into a convenient form.
+STRUCT_TAC is curried so that it will do some work if applied just to the
+argument `thy`.
+
+
+SEE ALSO
+
+BASIC_STRUCT_TAC	(for a description of structural induction)
+gen_struct_axm		(for a description of data structures in LCF)
+struct_axm

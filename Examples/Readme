@@ -1,0 +1,23 @@
+****************************************************************************
+*									   *
+*	EXAMPLES							   *
+*									   *
+****************************************************************************
+
+Directory Examples contains sample theories that can be used to test LCF.  They
+can also be used as the basis of other proofs.  These theories of numbers,
+lists, equality, fixed points and sequences forms a much richer starting base
+than pure PPLAMBDA.  Different choices are possible, e.g. between strict or
+lazy lists.
+
+The Makefile can be used to make the standard theories and also to test the 
+system.  If you have just built lcf on directory Franz, the command
+	make LCF=../Franz/lcf > testlog & 
+will use the new lcf to build all the theories.  You can then inspect file
+testlog for error messages.
+
+A files named XXX-ld.ml contains commands to load the theories constructed in 
+the corresponding file XXX.ml.  
+
+Before loading a file to build a theory X, you must delete the theory file
+X.th, since LCF will refuse to overwrite it.

@@ -1,0 +1,24 @@
+******************************************************************************
+*									     *
+*	BUGS								     *
+*									     *
+******************************************************************************
+This directory should be used for recording discovered bugs. Please forward
+bug reports to:
+
+	Brian Ritchie
+	Software Engineering Group
+	Informatics Division
+	Rutherford Appleton Laboratory
+	Chilton, Didcot
+	Oxon Ox11 0QX
+	England
+	email: br@inf.rl.ac.uk
+
+The file Fixed-bugs lists bugs that have been fixed or resolved.  Please look
+at it first if you have problems.  The first bug on this file concerns a 
+common fault in certain versions of Franz Lisp that causes compilation of
+S-print.l to fail.
+
+The source files are on directory Franz.  PLEASE LOG ALL EDITS ON THE FILE
+Franz/EDITS.txt !!!!!

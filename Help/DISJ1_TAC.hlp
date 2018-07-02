@@ -1,0 +1,7 @@
+DISJ1_TAC - tactic, selects 1st disjunct of disjunctive goal
+
+DISJ1_TAC: tactic
+
+     A \/ B
+   ==========
+	A

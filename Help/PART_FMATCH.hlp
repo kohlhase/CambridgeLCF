@@ -1,0 +1,16 @@
+PART_FMATCH - rule, instantiates theorem, matching a subformula
+
+PART_FMATCH : (form -> form) -> thm -> fconv
+
+Like PART_TMATCH, but matches formulas instead of terms.
+
+FAILURE CONDITIONS
+
+no match possible
+
+
+SEE ALSO 
+
+term_match		(for a longer description of matching)
+form_match
+PART_TMATCH

@@ -1,0 +1,18 @@
+set_state - restores goal stack to saved state
+
+set_state: goalstack -> void
+(part of subgoal package)
+
+Restores the proof state to that saved earlier using get_state.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+save_top_thm
+top_goal
+backup
+get_state
+print_state

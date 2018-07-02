@@ -1,0 +1,5 @@
+VOID_CASES - PPLAMBDA axiom, type void contains only the value UU
+
+VOID_CASES : thm
+
+|- !x:void. x==UU

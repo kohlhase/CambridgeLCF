@@ -1,0 +1,10 @@
+SUBS	- derived rule, forward substitution
+
+SUBS: (thm list) -> thm -> thm
+        ti==ui
+
+     t1==u1 ... tn==un      A(t1,...,tn)
+    -------------------------------------
+	         A(u1,...,un)
+
+Replaces each ti by ui in A.

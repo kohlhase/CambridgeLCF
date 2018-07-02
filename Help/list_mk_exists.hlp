@@ -1,0 +1,5 @@
+list_mk_exists - constructs an existential formula from a list of variables
+
+list_mk_exists : ((term list * form) -> form)
+
+list_mk_exists  ([`x1`,...,`xn`], `A`)   --->  `?x1 ... xn.A`

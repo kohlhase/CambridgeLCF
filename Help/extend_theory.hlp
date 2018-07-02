@@ -1,0 +1,49 @@
+extend_theory - loads an existing theory for further extension
+
+EXAMPLE
+
+	extend_theory "oldt";
+	.
+	.
+	.
+	<declaration of new types, constants, parents, axioms,...>
+	.
+	.
+	.
+	close_theory();
+
+The existing theory "oldt" is loaded and becomes the current draft.  Between
+extend_theory and close_theory you may declare additional operators of
+"oldt" by invoking new_type, new_constant, new_curried_infix,
+new_paired_infix, new_predicate, new_axiom, new_closed_axiom, and
+new_parent.
+
+All parents of "oldt" are recursively loaded as well.  No type, constant,
+infix, or predicate of "oldt" may clash with a name already used. In case of
+failure, LCF recovers cleanly, `unloading` any theories it had loaded before
+detecting the failure.
+
+
+FAILURE CONDITIONS
+
+theory does not exist
+theory file damaged
+theory is not a child of the current theory
+
+BUGS
+
+Does not check that new type, predicate, or constant do not clash with
+names in descendant theories.  It will be impossible to load a descendant
+theory if such a clash is created.
+
+The normal way to build upon a theory is to use it as a parent. You should
+only use extend_theory to add a declaration that was mistakenly omitted from
+a theory.
+
+
+SEE ALSO
+
+close_theory
+load_theory 
+new_parent
+new_theory

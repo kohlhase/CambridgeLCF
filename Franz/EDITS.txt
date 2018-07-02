@@ -1,0 +1,226 @@
+CHANGES TO THE LCF SYSTEM
+
+S-makeml.l/(load 'S-help): moved after (load 'S-dml).
+
+23 July
+
+S-tran.l/access_path: moved (atom (car rho)) code before code that calls
+car/cdr of rho!!
+
+S-tran.l/lispfunpat: moved (atom pat) code before code that calls
+car/cdr of pat!!
+
+S-tran.l/build_lb: moved (atom bvs) code before code that calls
+car/cdr of bvs!!
+
+S-constants,S-tran/loc_flg: renamed %loc_fundecs_flg.
+
+S-tran.l/tran: added (setq %loc_fundecs_flg nil) since this var was unbound.
+
+S-tran.l/rap: moved (atom (car rho)) code before code that calls
+car/cdr of rho!!
+
+S-tran.l/upd_ap: moved (eq (caar path) record) to end since (car path) may be
+an atom!!
+
+S-tran.l/access_var: moved (eq (caar path) record) to end since (car path) may
+be an atom!!
+
+S-tran.l/is_val: new predicate
+
+S-tran.l/lispfunpat: calls is_val to avoid taking cars of atoms
+
+S-tran.l/combinetree: calls is_val to avoid taking cars of atoms
+
+24 July
+
+S-type.l/unifybt/((eq (car bty1) 'mk-wildrecordtyp): changed
+(memq (car bty1)...) to (memq (car bty2)...)
+
+S-type.l/unifybt/unify_var: new function taken from unifybt.
+
+S-type.l/unifybt/unify_tuple: new function taken from unifybt.  Before calls
+to unify_tuple, added check that THE OTHER type is also a tupletyp.
+
+S-type.l/localtyping: added local declaration of ty (previously free)
+
+S-dml.ml/fst,snd: replaced by legal versions defined on pairs.  Previously had
+illegal flexible record types!  Were
+    fun fst {#1=x, ... } = x and snd {#2=x, ... } =x;
+
+
+25 July
+
+S-tml.l/tmlloop: moved call (initlean) to top.  Must only be done upon entry,
+not every time round the loop!
+
+S-constants.l/ptokchs: unused, deleted.
+
+S-parser/gnt,gnt1: assignments to ptoken and ptoktyp moved from gnt1 to gnt.
+S-parser/skip_cmnt: now calls gnt1 instead of gnt at end.  gnt should be
+NONRECURSIVE.
+
+REPLACEMENT OF TOKFLG AND TOKLIST BY permitting tokens of the form 
+ (string . chars)
+
+S-parser.l/is-stringconst: new, checks for pair (string . chars)
+S-parser.l/tcn: sets token to (string . chars) rather than setting toklist
+S-parser.l/tokflag: deleted (defconst tokflag '|<string>|)
+
+
+L-dlcf.l:       `(mk-var ,(if (eq ptoken tokflag) toklist ptoken)))
+changed to `(mk-var ,(if (is-stringconst ptoken) (cdr ptoken) ptoken)))
+
+In each of above, reference to toklist deleted.
+
+S-parser.l/initlean: deleted     (setq toklist nil)
+
+S-constants.l/tokflag,toklist: deleted.
+
+S-parser/parse: replaced numberp by (not symbolp) to protect calls to get.
+Now tokens can be pairs as well as numbers.
+
+L-tacticals.ml,L-tactics.ml: replaced ;; by ; in many places
+
+CHANGES COPIED FROM RAL:
+
+1) The exception "general" is not a standard SML exception.  However
+Larry Paulson makes use of this exception in his work and as a consequence
+the line
+     (defexty '|general| '(string)) 
+has been added to S-dml.l.
+
+2) To format macros the line 
+    (eval-when (compile) (macros t))
+has been added to S-format.l
+
+Makefile: moved (setq %system-name ...)(setq %version "(RAL 1.5)") to
+L-makelcf.l and S-makeml.l.  
+
+26 July
+
+Examples directory: added tr.ml llist.ml LT.ml
+
+Added files LT-ld.ml, list-ld.ml   nat-ld.ml    tr-ld.ml
+eq-ld.ml, llist-ld.ml  seq-ld.ml: to load theories
+
+Added Examples/ROOT.ml as big batch test.
+
+Examples/tr.ml tested.
+
+Examples/nat.ml: changed n0 to 0 since the parsing bug has been fixed -- a
+constant may now be called "0".
+
+L-gen.ml/use: added as synonym for loadt.  The loading function is commonly
+called "use" in Standard ML.
+
+Franz/L-eq.ml: deleted.  The correct version is on directory Examples.
+
+Examples/LT.ml:tested.
+Examples/llist.ml: tested.
+
+Makefile:tidied.  NOTE THAT THERE MUST BE A SPACE AFTER THE SEMICOLON IN EACH
+LOAD/COMPILE COMMAND.  THIS IS BECAUSE THE TOP LOOP INITIALIZES THE SCANNER BY
+READING A CHARACTER.  THE CHARACTER FOLLOWING THE SEMICOLON IS LOST!
+
+L-gen.ml: renamed S-gen.ml
+L-lis.ml: renamed S-lis.ml
+L-mlcurry.ml: renamed S-curry.ml
+L-obj.l: renamed S-obj.l
+L-list.l: renamed S-list.l
+
+Makefile/smlc: this could not have worked before.  Now it loads the above
+files (and otherwise works sensibly).
+
+L-thyfns.l: moved the following to S-dml.l
+(dml |print_string| 1 pstring (mk-funtyp (string)(mk-recordtyp)))
+(dml |print_int| 1 pstring (mk-funtyp (int) (mk-recordtyp)))
+
+S-gen.ml/orelsef: handles ? instead of syntax, etc.
+
+S-makeml.l: now loads S-obj.l and S-list.l
+
+L-makelcf.l: now loads S-obj.l and S-list.l in ML part rather than L-obj and
+L-list in LCF part.
+
+Makefile: modified references to renamed files, now S-gen.ml, S-lis.ml,
+S-curry.ml, S-obj.l, S-list.l.
+
+Help: files transliterated to Standard ML as much as possible and updated.
+Added files
+CONJ_LEFT_TAC.hlp, DISJ_LEFT_TAC.hlp, IMP_LEFT_TAC.hlp, FORALL_LEFT_TAC.hlp
+EXISTS_LEFT_TAC.hlp, CUT_TAC.hlp
+
+28 July
+
+S-site: included %cdate (creation date) in banner.  Added message about Help
+system.
+
+S-help/keyword,ml-keyword: restored from old system.  Now checks first for
+existence of kwic file.
+
+Help/Makefile: new, replaces old shell script build.sh
+
+Readme.ms,lcf.1,ml.1: updated
+
+1 August
+
+Makefile: added variable LISP for the Lisp system
+
+S-constants: corrected %help-di to %help-dir
+
+Examples/Makefile: added for testing.  Deleted ROOT since it produces theories
+with spurious parents.
+
+S-dml/ml-help: deleted.  This belongs in S-help (where it is already defined!!)
+
+L-makelcf.l: added the line (load 'S-help).  It appears that S-help was in
+danger of being deleted!
+
+
+MADE DISTRIBUTION TAPE FOR VERSION 1.5
+SUMMARY OF CHANGES:
+
+Fixed bugs in S-tran that prevented LCF's working on SUNs.
+Fixed a typechecking bug involving flexible records.
+Fixed two parsing bugs.
+Added three sample theories to directory Examples.
+Updated and restored the Help system.
+
+14 August 92
+
+Colin Runciman has reported the following bug:
+
+fun DC ABth =
+    let val (A,B) = dest_disj (concl ABth)
+        and Ath = DISJ2 B (ASSUME A)
+        and Bth = DISJ1 (ASSUME B) A
+    in  DISJ_CASES ABth Ath Bth  end;
+
+This fails because the ML typechecker does not reject the simultaneous
+declaration, which is incorrect.  Here is another example:
+
+! val a=true;
+- val a = true : bool
+! val a=1 and b=a+1;
+Non-number to add  t
+
+S-type.l/typing: Mikael Hedlund has supplied a patch, replacing the
+following code for mk-and:
+
+          (mk-and; 
+			(let ((%mult_l nil))
+			   (cons 'mk-tupletyp
+				(mapcar
+				   '(lambda (vb)
+					(typing vb)
+				    );end lambda
+				    tl
+				);end mapcar
+			    );end cons
+	              );end let
+	   );end mk-and
+
+L-makelcf.l,S-makeml.l: set %version to 1.6
+
+make lcfc and make test ran without error!

@@ -1,0 +1,7 @@
+SYM	- PPLAMBDA rule, symmetry of equivalence
+
+SYM: thm -> thm
+
+	t==u
+    ------------
+	u==t

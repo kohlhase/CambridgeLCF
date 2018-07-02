@@ -1,0 +1,8 @@
+DISJ_CASES_UNION - derived rule, disjunction in assumption and conclusion
+
+DISJ_CASES_UNION: thm -> thm -> thm -> thm
+
+	A \/ B	    [A] C     [B] D
+   --------------------------------------
+                  C \/ D
+

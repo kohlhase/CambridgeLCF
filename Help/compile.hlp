@@ -1,0 +1,43 @@
+compile - compiles an ML source file
+
+compile : (string * bool) -> void
+
+(Applies to systems built in Franzlisp or Maclisp only.  In other systems, all
+functions are compiled automatically.)
+
+Typing   compile("file",true)   loads the file just as load does, and also
+compiles it into Lisp.  Compiled ML runs several times faster than interpreted
+ML, and loads almost instantaneously.
+
+Suppose you want to compile two files `a.ml` and `b.ml`, where `b` depends
+on `a`.  You can type
+
+   $ lcf
+   ! compile ("a",true);
+   ! compile ("b",true);
+   ! quit();    		(*exits LCF*)
+   
+   
+Now you can load the object files;  `load` always loads an object file if
+one exists, regardless of its creation date.  Lisp prints a `fasl` message
+when loading an object file.  
+
+   $ lcf
+   ! load("a",false);
+   [fasl a_ml.o]
+   ! load("b",false);
+   [fasl b_ml.o]
+
+Loading `a` sets up the static bindings necessary for `b` to run.  You may
+edit and recompile `b` without recompiling `a`.  However, if you recompile
+`a`, then you must also recompile `b` so that it sees the new bindings for
+`a`. The simplest approach is to avoid dependencies between files:  if `b`
+does not call any functions (or other values) declared in `a`, then `b` can
+be run without `a` present at all.
+
+If you try to execute compiled code for `b` when `a` has not been loaded,
+you will get a Lisp error such as `illegal memory reference`, `unbound atom
+ML%xxxx%nnn` or `bad function FUN%nnn%nnn` where xxxx is the name of an ML
+identifier, and nnn is a number.  Try loading `a`, or recompiling `b`.  If
+the system maintainer recompiles the ML code built into the system, you will
+have to recompile all your programs.

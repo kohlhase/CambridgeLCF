@@ -1,0 +1,8 @@
+rev_itlist - list iteration function, gathers elements in reverse order
+
+rev_itlist : (('a -> 'b -> 'b) -> 'a list -> 'b -> 'b)
+
+rev_itlist f [x1,...,xm] y   --->   f xm (f x(m-1) ... (f x1 y))
+
+Returns y if list empty (m=0).
+

@@ -1,0 +1,5 @@
+EQ_SYM	- PPLAMBDA theorem, equivalence is symmetric
+
+EQ_SYM : thm
+
+|-`!x:'a y:'a. x == y:'a  ==>  y == x:'a`

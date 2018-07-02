@@ -1,0 +1,15 @@
+MAP_EVERY - sequencing tactical, maps tactic function over list
+
+MAP_EVERY: ('a -> tactic) -> ('a list) -> tactic
+
+The tactic
+
+    MAP_EVERY tacf [x1,..., xn] 
+
+has the effect of
+
+    EVERY [tacf x1,..., tacf xn]
+
+EXAMPLE
+
+    MAP_EVERY X_GEN_TAC [`a`,..., `c`]

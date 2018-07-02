@@ -1,0 +1,7 @@
+itlist	- list iteration function, primitive recursion
+
+itlist : (('a -> 'b -> 'b) -> 'a list -> 'b -> 'b)
+
+itlist f [x1,...,xm] y   --->   f x1 (f x2 ... (f xm y))
+
+Returns y if list empty (m=0).

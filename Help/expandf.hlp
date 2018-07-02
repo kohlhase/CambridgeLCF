@@ -1,0 +1,19 @@
+expandf	- applies tactic to top goal on stack, without validation
+
+expandf: tactic -> void
+(part of subgoal package)
+
+This is a faster version of expand: it does not apply VALID.  The CPU time
+saved may cost you later.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expand
+rotate
+backup
+save_top_thm
+top_goal
+get_state
+set_state
+print_state

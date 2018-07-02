@@ -1,0 +1,13 @@
+used_rewrites - lists theorems in canonical form for rewriting
+
+used_rewrites: (thm list) -> (thm list * thm list)
+
+This function is helpful for predicting the effect
+of rewriting.
+It processes the list of theorems 
+as the rewriting tactics do --
+puts the theorems into canonical form,
+and classifies them as term rewrites, formula rewrites,
+or unsuitable for rewriting.
+The output consists of the list of term rewrites,
+paired with the list of formula rewrites.

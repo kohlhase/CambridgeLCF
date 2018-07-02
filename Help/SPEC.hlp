@@ -1,0 +1,12 @@
+SPEC	- rule, universal elimination, specializes a theorem
+
+SPEC: term -> thm -> thm
+       t
+
+
+
+Forall elimination
+
+	!x.A(x)
+     ------------
+         A(t)

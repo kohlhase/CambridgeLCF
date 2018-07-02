@@ -1,0 +1,9 @@
+DISJ1	- rule, disjunction introduction, from 1st disjunct
+
+DISJ1: thm -> form -> thm
+
+Disjunction introduction
+
+	A
+   -----------
+     A \/ B

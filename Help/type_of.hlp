@@ -1,0 +1,11 @@
+type_of	- returns the type of a PPLAMBDA term
+
+type_of : term -> type
+
+Returns the type of any constant, variable, abstraction, or combination.
+Much more efficient than computing the type yourself, since types are stored
+with terms.
+
+EXAMPLE
+
+type_of `TT`   --->  `:tr`

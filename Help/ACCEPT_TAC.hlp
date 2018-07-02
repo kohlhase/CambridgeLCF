@@ -1,0 +1,8 @@
+ACCEPT_TAC - tactic, solves goal given similar theorem
+
+ACCEPT_TAC:  thm  -> tactic
+	     |-A
+
+	 A
+    ===========
+	 -

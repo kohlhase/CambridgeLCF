@@ -1,0 +1,5 @@
+EQ_TRANS - PPLAMBDA theorem, equivalence is transitive
+
+EQ_TRANS : thm
+
+|-`!x:'a y:'a z:'a. x == y:'a  /\  y == z:'a  ==>  x == z:'a` : thm

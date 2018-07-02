@@ -1,0 +1,467 @@
+*	- integer multiplication (infix)
+/	- integer division (infix)
++	- integer addition (infix)
+-	- integer subtraction (infix and prefix)
+=	- equality relation, faulty for functions (infix)
+<	- integer less-than relation 
+>	- integer greater-than relation
+@	- appends two lists (infix)
+append	- appends two lists
+not	- boolean negation (prefix)
+null	- list discriminator, tests for empty list
+fst	- pair destructor, returns first element of a pair
+snd	- pair destructor, returns second element of a pair
+hd	- list destructor, returns first element of a list
+tl	- list destructor, returns tail of list after first element
+explode	- lists the characters in a string
+implode - concatenates a list of one-char strings to a string
+max_print_depth - sets maximum depth for pretty printing
+set_prettymode - turns pretty printing on/off
+print_newline - prints queued text then new line (pretty printing)
+print_begin - opens textual unit for pretty printing
+print_ibegin - opens "inconsistent break" unit for pretty printing
+print_end - closes textual unit, pretty printing
+print_break - requests white space or line break, pretty printing
+print_string - prints a literal string (without enclosing quotes)
+help - on-line documentation, prints help file describing a subject
+keyword - on-line documentation, prints database lines mentioning subject
+type_in_type - PPLAMBDA relation, whether a type occurs within another type
+type_in_term - PPLAMBDA relation, whether a type occurs within a term
+type_in_form - PPLAMBDA relation, whether a type occurs within a formula
+type_tyvars - lists all the type variables in a type
+term_tyvars - lists all the type variables in a term
+form_tyvars - lists all the type variables in a formula
+inst_type - instantiates the type variables in a type
+inst_term - instantiates the type variables in a term
+inst_form - instantiates the type variables in a formula
+length	- returns the length of a list
+rev	- reverses a list
+mem	- tests whether a value is an element of a list
+flat	- appends a list of lists into a list
+map	- applies a function to every element of a list
+exists	- tests whether any element of a list satisfies the predicate
+forall	- tests whether every element of a list satisfies the predicate
+find	- returns first element of a list satisfying a predicate
+tryfind	- applies function to elements of a list, returns first success
+itlist	- list iteration function, primitive recursion
+rev_itlist - list iteration function, gathers elements in reverse order
+filter	-  lists elements that satisfy predicate 
+mapfilter - applies function to elements of list, lists successes
+merge_nets - combines two nets
+enter_term - enters an element into a term net
+lookup_term - looks up element in a term net, lists results
+enter_form - enters an element into a formula net
+lookup_form - looks up element in a formula net, lists results
+mk_pred - formula constructor, builds a predicate
+is_pred - formula discriminator, tests for a predicate
+dest_pred - formula destructor, returns predicate symbol and arg
+mk_conj - formula constructor, builds a conjunction
+is_conj - formula discriminator, tests for a conjunction
+dest_conj - formula destructor, returns two conjuncts
+mk_disj - formula constructor, builds a disjunction
+is_disj - formula discriminator, tests for a disjunction
+dest_disj - formula destructor, returns two disjuncts
+mk_imp - formula constructor, builds an implication
+is_imp - formula discriminator, tests for an implication
+dest_imp - formula destructor, returns implication parts
+mk_iff - formula constructor, builds an iff-formula
+is_iff - formula discriminator, tests for an iff-formula
+dest_iff - formula destructor, returns iff-formula parts
+mk_forall - formula constructor, builds a universal formula
+is_forall - formula discriminator, tests for a universal formula
+dest_forall - formula destructor, returns universal variable and body
+mk_exists - formula constructor, builds an existential formula
+is_exists - formula discriminator, tests for an existential formula
+dest_exists - formula destructor, returns existential variable and body
+mk_var - term constructor, builds a variable
+is_var - term discriminator, tests for a variable
+dest_var - term destructor, returns variable's name and type
+mk_const - term constructor, builds a constant
+is_const - term discriminator, tests for a constant
+dest_const - term destructor, returns constant's name and type
+mk_abs - term constructor, builds an abstraction
+is_abs - term discriminator, tests for an abstraction
+dest_abs - term destructor, returns abstraction's variable and body
+mk_comb - term constructor, builds a combination
+is_comb - term discriminator, tests for a combination
+dest_comb - term destructor, returns rator and rand
+mk_vartype - type constructor, builds a type variable
+is_vartype - type discriminator, tests for a type variable
+dest_vartype - type destructor, returns name of type variable
+mk_type - type constructor, builds a compound type
+dest_type - type destructor, returns type operator and operands
+type_of	- returns the type of a PPLAMBDA term
+thm_count - returns the number of PPLAMBDA inferences in session
+dest_thm - theorem destructor, returns assumptions and conclusion
+hyp	- theorem destructor, returns assumptions
+concl	- theorem destructor, returns conclusion
+term_class - classifies term as const, var, abs, or comb
+form_class - classifies formula as pred, conj, disj, imp, iff, forall, exists
+genvar	- generates a new variable of given type
+term_match - matches term against another, returns instantiation
+form_match - matches formula against another, returns instantiation
+aconv_term - PPLAMBDA relation, tests if two terms are alpha-convertable
+term_frees - lists free variables in a term
+term_vars - lists all variables in a term
+subst_term - substitutes in a term
+subst_occs_term - substitutes in a term at given occurrences_
+term_freein_term - PPLAMBDA relation, tests if a term is free in another
+aconv_form - PPLAMBDA relation, tests if two formulas are alpha-convertable
+form_frees - lists free variables in a formula
+form_vars - lists all variables in a formula
+subst_form - substitutes in a formula
+subst_occs_form - substitutes in a formula at given occurrences_
+form_freein_form - PPLAMBDA relation, tests if a formula is free in another
+term_freein_form - PPLAMBDA relation, tests if a term is free in a formula
+new_theory - opens a new theory as child of previous one
+close_theory - terminates extending a theory, writes it onto disc 
+load_theory - loads an existing theory (fails if not descended from current)
+extend_theory - loads an existing theory for further extension
+new_parent - extends theory with new parent
+new_type - extends theory with new type
+new_constant - extends theory with new constant
+new_operator - extends theory with new constant
+new_paired_infix - extends theory with paired infix operator
+new_curried_infix - extends theory with curried infix operator
+new_predicate - extends theory with new predicate
+delete_thm - deletes a theorem from a theory
+new_axiom - extends theory with new axiom
+new_closed_axiom - extends theory with new axiom (fails if free variables)
+save_thm - records a theorem on current theory
+axiom	- returns an axiom from a theory
+theorem - returns a theorem from a theory
+axioms	- lists the axioms of a theory
+theorems - lists the theorems of a theory
+constants - lists the constants of a theory
+paired_infixes - lists the paired infixes of a theory
+curried_infixes - lists the curried infixes of a theory
+predicates - lists the predicates of a theory
+parents - lists the parents of a theory
+types - lists the types of a theory
+print_theory - prints types, axioms, theorems, etc. of theory
+dropout	- terminates ML, exits to Lisp
+load	- loads an ML source file
+quit	- terminates session
+timer	- sets flag for printing runtime of commands
+lisp	- evaluates a string as a Lisp s-expression
+compile - compiles an ML source file
+save	- saves the current session on disc
+print_tok - prints a token (with quotes)
+print_bool - prints true or false
+print_void - prints ()
+print_int - prints a decimal integer
+show_types - turns printing of PPLAMBDA types (in terms) on/off
+print_term - prints PPLAMBDA term
+print_form - prints PPLAMBDA formula
+print_type - prints PPLAMBDA type
+print_thm - prints PPLAMBDA theorem
+variant	- primes a variable to make it distinct from a list of variables
+end_itlist - iteration for non-empty lists, starting with last element
+assoc	- looks up a value in a list of (key,result) pairs
+rev_assoc - looks up a value in a list of (result,key) pairs
+intersect - lists elements common to two lists
+subtract - lists elements that appear in first list but not in second
+union	- lists elements that occur in either of two lists
+make_set - returns a list of distinct elements of a list
+split	- splits a list of pairs into a pair of lists
+combine	- combines a pair of lists into a list of pairs
+com	- combines a pair of lists into a list of pairs (infix)
+distinct - tests whether all the elements in a list are distinct
+chop_list - breaks a list into first n elements, and the rest
+rotate_left - rotates list elements to left, makes first element last
+rotate_right - rotates list elements to right, makes last element first
+diagonal - lists diagonal elements of a matrix (list of lists)
+partition - lists the elements that satisfy predicate, and those that don't
+replicate - makes a list of one value repeated n times
+upto	- makes a list of integers from a lower bound to an upper
+words	- lists the words in a string separated by blanks
+maptok	- maps a function over the words in a string
+loadt	- loads an ML source file, printing values and types
+loadf	- loads an ML source file, printing nothing
+concat	- concatenates two strings
+^	- concatenates two strings (infix)
+concatl	- concatenates a list of strings
+message	- prints a strings and a newline
+o	- composes two functions (infix)
+#	- combines two functions into a function on pairs (infix)
+I	- identity combinator
+K	- constant combinator
+C	- permutator combinator
+W	- duplicator combinator
+B	- composition combinator
+S	- substitution combinator
+pair	- constructor function for pairs
+curry	- makes a curried function from a paired one
+repeatf	- repeatly apply a function to its result until it fails
+can	- tests whether a function succeeds when applied to an argument
+assert	- tests that a value satisfies a predicate
+syserror - reports error in ML
+funpow	- returns the n'th power of function
+list_mk_abs - constructs a curried abstraction
+list_mk_comb - constructs a curried combination
+list_mk_conj - constructs a conjunction of a list of elements
+list_mk_disj - constructs a disjunction of a list of elements
+list_mk_imp - constructs an implication from a list of antecedents
+list_mk_forall - constructs a universal formula from a list of variables
+list_mk_exists - constructs an existential formula from a list of variables
+strip_abs - destructs a curried abstraction into (variable list, body)
+strip_comb - destructs a curried combination into (rator, rand list)
+conjuncts - destructs a conjunction into a list of conjuncts
+disjuncts - destructs a disjunction into a list of disjuncts
+strip_imp - destructs an implication into (antecedent list, consequent)
+strip_forall - destructs a universal formula into (variable list, body)
+strip_exists - destructs an existential formula into (variable list, body)
+mk_pair	- term constructor, makes a PPLAMBDA pair 
+mk_cond	- term constructor, makes a PPLAMBDA conditional 
+mk_equiv - formula constructor, makes a PPLAMBDA equivalence
+mk_inequiv - formula constructor, makes a PPLAMBDA inequivalence
+is_pair	- term discriminator, tests for a PPLAMBDA pair
+is_cond	- term discriminator, tests for a PPLAMBDA conditional
+is_equiv - formula constructor, tests for a PPLAMBDA equivalence
+is_inequiv - formula constructor, tests for a PPLAMBDA inequivalence
+dest_pair - destructs a PPLAMBDA pair, returns 1st, 2nd terms
+dest_cond - destructs a PPLAMBDA conditional
+dest_equiv - destructs a PPLAMBDA equivalence, returns left, right sides
+dest_inequiv - destructs a PPLAMBDA inequivalence, returns left, right sides
+lhs	- formula destructor, returns left side of a binary predicate
+rhs	- formula destructor, returns right side of a binary predicate
+find_term_in_term - searches a term for subterm satisfying the predicate
+find_term_in_form - searches a formula for subterm satisfying the predicate
+TRUTH	- PPLAMBDA axiom of truth
+LESS_REFL - PPLAMBDA axiom, inequivalence is reflexive
+LESS_ANTI_SYM - PPLAMBDA axiom, inequivalence is anti-symmetric
+LESS_TRANS - PPLAMBDA axiom, inequivalence is transitive
+MONO	- PPLAMBDA axiom, function application is monotonic
+LESS_EXT - PPLAMBDA axiom, extensionality of inequivalence for functions
+MINIMAL - PPLAMBDA axiom, UU is the minimal element of inequivalence
+COND_CLAUSES - PPLAMBDA axiom defining the conditional term 
+TR_CASES - PPLAMBDA axiom enumerating the three truth values
+TR_LESS_DISTINCT - PPLAMBDA axiom, the truth values are pairwise unrelated
+VOID_CASES - PPLAMBDA axiom, type void contains only the value UU
+MK_PAIR	- PPLAMBDA axiom, every element of type ":* # **" is a pair
+FST_PAIR - PPLAMBDA axiom defining FST on pairs
+SND_PAIR - PPLAMBDA axiom defining SND on pairs
+FIX_EQ	- PPLAMBDA axiom of fixed points
+forml_frees - lists free variables of a list of formulas
+forml_vars - lists all variables of a list of formulas
+forml_tyvars - lists type variables of a list of formulas
+thm_frees - lists free variables of a theorem
+CONJ	- rule, conjunction introduction
+CONJUNCT1 - rule, conjunction elimination, returns 1st conjunct
+CONJUNCT2 - rule, conjunction elimination, returns 2nd conjunct
+DISJ1	- rule, disjunction introduction, from 1st disjunct
+DISJ2	- rule, disjunction introduction, from 2nd disjunct
+DISJ_CASES - rule, disjunction elimination, causes case split
+DISCH	- rule, implication introduction, discharges an assumption
+MP	- rule, implication elimination, performs modus ponens
+CONJ_IFF - rule, iff introduction, converts conjunction to iff-formula
+IFF_CONJ - rule, iff elimination, converts iff-formula to conjunction
+GEN	- rule, universal introduction, generalizes a theorem
+SPEC	- rule, universal elimination, specializes a theorem
+EXISTS	- rule, existential introduction
+CHOOSE	- rule, existential elimination
+ASSUME	- rule, assuming a formula
+CONTR	- intuitionistic rule, contradiction
+CCONTR	- classical rule, contradiction
+INST_TYPE - rule, instantiating type variables in a theorem
+INST	- rule, instantiating free variables in a theorem
+mk_fthm	- makes arbitrary theorem, assuming falsity
+SUBST	- rule, simultaneous substitution using a pattern
+SUBS	- derived rule, forward substitution
+SUBS_OCCS - derived rule, forward substitution at occurrences
+BETA_CONV - rule, beta conversion
+finite_type - given a theorem of finiteness, returns finite type
+cfinite_type - given a theorem of chain-finiteness, returns the type
+is_cfinite - tests if a type is chain-finite assuming given type properties
+is_finite - tests if a type is finite given type properties
+admits_induction - tests if formula admits induction given type properties
+INDUCT	- rule, simultaneous stepwise computation induction
+GEN_ALL	- derived rule, generalizes a theorem over all free variables
+DISCH_ALL - derived rule, discharges all assumptions of a theorem
+SPECL	- derived rule, specializes theorem to list of terms
+UNDISCH	- derived rule, un-discharges antecedent of implication
+UNDISCH_ALL - derived rule, un-discharges all antecedents of an implication
+SPEC_ALL - derived rule, skolemizes outer universal quantifiers
+CUT - derived rule (the cut rule), proves an assumption from a theorem
+CONJ_PAIR - derived rule, breaks conjunction to pair of conjuncts
+LIST_CONJ - derived rule, makes a conjunction from theorem list
+CONJ_LIST - derived rule, breaks conjunction into theorem list
+CONJUNCTS - derived rule, lists all conjuncts of a conjunction
+IMP_CANON - derived rule, puts theorem into canonical form, horn clauses
+LIST_MP - derived rule, iterated modus ponens
+CONTRAPOS - derived rule, takes contrapositive of implication
+DISJ_IMP - derived rule, converting disjunction to implication
+DISJ_CASES_UNION - derived rule, disjunction in assumption and conclusion
+SUB_CHAIN - applies a rule to subparts of a theorem
+CLOSE_UP - derived rule, discharges assumptions and quantifies over variables
+EQ_REFL	- PPLAMBDA theorem, equivalence is reflexive
+EQ_ANAL - PPLAMBDA theorem, analysis of an equivalence
+EQ_SYM	- PPLAMBDA theorem, equivalence is symmetric
+EQ_TRANS - PPLAMBDA theorem, equivalence is transitive
+EQ_EXT	- PPLAMBDA theorem stating extensionality of equivalence for functions
+REFL	- PPLAMBDA rule, reflexivity of equivalence
+SYM	- PPLAMBDA rule, symmetry of equivalence
+ANAL	- PPLAMBDA rule, analysis of an equivalence
+SYNTH	- PPLAMBDA rule, synthesis of an equivalence
+TRANS	- PPLAMBDA rule, transitivity of (in)equivalence
+EXT	- PPLAMBDA rule, extensionality (in)equivalence
+TR_EQ_DISTINCT - PPLAMBDA theorem, truth values are distinct
+LESS_UU - PPLAMBDA theorem, minimality of UU
+MIN	- PPLAMBDA rule, minimality of UU
+MIN_COMB - PPLAMBDA theorem, applying the function UU
+MIN_ABS	- PPLAMBDA theorem, abstraction over UU
+ETA_EQ	- PPLAMBDA theorem, eta-conversion
+LE_MK_COMB	- PPLAMBDA rule, constructs (in)equivalent combinations
+MK_COMB	- PPLAMBDA rule, constructs equivalent combinations
+AP_TERM - PPLAMBDA rule, applies a term to an (in)equivalence
+AP_THM	- PPLAMBDA rule, applies an (in)equivalence to a term
+MK_ABS	- PPLAMBDA rule, constructs (in)equivalent abstractions
+HALF_MK_ABS - PPLAMBDA rule, (in)equivalent function and abstraction
+ALPHA_CONV - PPLAMBDA rule, alpha-conversion, renames lambda variable
+FST_STRICT - PPLAMBDA theorem, FST is strict
+SND_STRICT - PPLAMBDA theorem, SND is strict
+TAC_PROOF - solves a goal using a tactic, returns a theorem
+prove_thm - solves a goal using a tactic, stores a theorem
+ASSUM_LIST - tactical, gives current assumption list to a tactic
+THEN	- tactical, applies 2 tactics in sequence
+ORELSE	- tactical, applies 1st tactic, if failure, applies 2nd
+THENL	- tactical, applies a different tactic to each goal
+FAIL_TAC - tactic, always fails with given string
+NO_TAC	- tactic, always fails, identity for ORELSE
+ALL_TAC	- tactic, passes on goal unchanged, identity for THEN
+TRY	- tactical, applies a tactic, ignores failure
+REPEAT	- tactical, applies a tactic repeatedly until failure
+achieves - tests whether theorem achieves goal using no extra assumptions
+chktac	- checks goal list and validation using dummy theorems
+VALID	- tactical, fails if tactic's result is invalid (approximate test)
+EVERY	- sequencing tactical, applies every tactic in succession
+FIRST	- searching tactical, applies first successful tactic
+MAP_EVERY - sequencing tactical, maps tactic function over list
+MAP_FIRST - searching tactical, maps tactic function over list
+EVERY_ASSUM - sequencing tactical, maps tactic function over assumptions
+FIRST_ASSUM - searching tactical, maps tactic function over assumptions
+ACCEPT_TAC - tactic, solves goal given similar theorem
+CONTR_TAC - tactic, solves goal given contradictory theorem
+CUT_TAC - tactic for the cut rule, introduces a lemma
+CUT_THM_TAC - tactic for cut rule, adds theorem to assumption list
+CONJ_TAC - tactic, splits conjunctive goal in two
+CONJ_LEFT_TAC - tactic, splits conjunctive assumption in two
+DISJ1_TAC - tactic, selects 1st disjunct of disjunctive goal
+DISJ2_TAC - tactic, selects 2nd disjunct of disjunctive goal
+DISJ_LEFT_TAC - tactic, eliminates disjunctive assumption causing case split
+IMP_LEFT_TAC - tactic, uses implicative assumption
+MP_TAC	- tactic, adds theorem as antecedent to goal
+IFF_TAC	- tactic, splits iff-formula in two
+X_GEN_TAC - tactic, strips universal quantifier using given variable 
+GEN_TAC - tactic, strips universal quantifier choosing variable
+SPEC_TAC - tactic, abstracts goal over term
+FORALL_LEFT_TAC - tactic, instantiates universal assumption (forall)
+EXISTS_TAC - tactic, states value for existential variable
+EXISTS_LEFT_TAC - tactic, eliminates existential assumption
+INDUCT_TAC - tactic, computation induction, checks admissability
+SUBST_TAC - tactic, substitutes in goal
+SUBST_OCCS_TAC - tactic, substitutes in goal at occurrences
+SUBST1_TAC - tactic, substitutes in goal using 1 equivalence
+SUBST_ALL_TAC - tactic, substitutes in goal and assumptions
+STRIP_THM_TAC - tactic, breaks up theorem, assumes parts
+COND_CASES_TAC - tactic, finds condition in goal, causes case split
+STRIP_TAC - tactic, strips 1 outer forall, conj, imp from goal
+DISCH_TAC - tactic, moves antecedent of goal to assumptions
+INST_TY_TERM - rule, instantiates types, terms from match
+PART_FMATCH - rule, instantiates theorem, matching a subformula
+PART_TMATCH - rule, instantiates theorem, matching a subterm
+MATCH_MP - rule, matching modus ponens, instantiates implication
+REWRITE_CONV - term conversion, instantiates an equivalence theorem
+ETA_CONV - eta (term) conversion, stripping redundant lambda
+NO_CONV - term conversion, always fails
+ALL_CONV - term conversion, passes term unchanged
+THENC	- term conversional, applies 2 conversions in succession
+ORELSEC - term conversional, applies 1st conversion, if failure applies 2nd
+EVERY_CONV - sequencing term conversional, applies every conv in succession
+FIRST_CONV - searching term conversional, applies first successful conv
+REPEATC	- term conversional, applies conversion repeatedly until failure
+SUB_CONV - term conversional, applies conversion to top-level subterms
+DEPTH_CONV - term conversional, applies conversion to all subterms
+REDEPTH_CONV - term conversional, repeatedly applies conversion to subterms
+TOP_DEPTH_CONV - term conversional, applies conversion top-down to subterms
+REWRITE_FCONV - formula conversion, instantiates an equivalence theorem
+NO_FCONV - formula conversion, always fails
+ALL_FCONV - formula conversion, passes formula unchanged
+THENFC	- formula conversional, applies 2 conversions in succession
+ORELSEFC - formula conversional, applies 1st conv, if failure applies 2nd
+EVERY_FCONV - sequencing formula conversional, applies every conversion
+FIRST_FCONV - searching formula conversional, applies first successful conv
+REPEATFC - formula conversional, applies conversion repeatedly until failure
+SUB_FCONV - formula conversional, applies conversion to top-level subformulas
+DEPTH_FCONV - formula conversional, applies conversion to all subformulas
+REDEPTH_FCONV - formula conversional, repeatedly applies conv to subformulas
+TOP_DEPTH_FCONV - formula conversional, applies conv top-down to subformulas
+MK_PRED	- derived rule, constructs iff-equivalent predicates
+MK_CONJ - derived rule, constructs iff-equivalent conjunctions
+MK_DISJ - derived rule, constructs iff-equivalent disjunctions
+MK_IMP	- derived rule, constructs iff-equivalent implications
+MK_IFF	- derived rule, constructs iff-equivalent iff-formulas
+MK_FORALL - derived rule, constructs iff-equivalent universal formulas
+MK_EXISTS - derived rule, constructs iff-equivalent existential formulas
+FSYM	- derived rule, symmetry of iff
+FTRANS	- derived rule, transitivity of iff
+CONJ_FCONV - formula conversional for conjunctions
+DISJ_FCONV - formula conversional for disjunctions
+IMP_FCONV - formula conversional for implications
+IFF_FCONV - formula conversional for iff-formulas
+FORALL_FCONV - formula conversional for universal formulas
+EXISTS_FCONV - formula conversional for existential formulas
+PRED_FCONV - formula conversional for predicates
+LOCAL_CONJ_FCONV - local formula conversional for conjunctions
+LOCAL_IMP_FCONV - local formula conversional for implications
+LOCAL_SUB_FCONV - local formula conversional, converts top-level subformulas
+LOCAL_TOP_DEPTH_FCONV - local recursive top-down formula conversional
+FCONV_CANON - derived rule, canonical form for formula conversions
+TRUTH_FCONV - formula conversion, rewrites a formula to TRUTH
+FALSITY_FCONV - formula conversion, rewrites a formula to FALSITY
+FCONV_RULE - derived rule, applies formula conversion to theorem
+FCONV_TAC - tactic, applies formula conversion to goal
+TAUT_CONJ_FCONV - formula conversion, conjunction tautologies
+TAUT_DISJ_FCONV - formula conversion, disjunction tautologies
+TAUT_IMP_FCONV - formula conversion, implication tautologies
+TAUT_IFF_FCONV - formula conversion, iff-formula tautologies
+TAUT_FORALL_FCONV - formula conversion, universal formula tautologies
+TAUT_EXISTS_FCONV - formula conversion, existential formula tautologies
+TAUT_PRED_FCONV - formula conversion, standard predicate tautologies
+BASIC_TAUT_FCONV - formula conversion, all top-level tautologies
+DISJ_IMP_FCONV - formula conversion, distributes disjunctive antecedents
+DISJ_CONJ_FCONV - formula conversion, distributes disjunctions to right
+CONJ_DISJ_FCONV - formula conversion, distributes disjunctions to left
+EXISTS_IMP_FCONV - formula conversion, expands existential antecedents
+EXISTS_CONJ_FCONV - formula conversion, expands existentials to right
+CONJ_EXISTS_FCONV - formula conversion, expands existentials to left
+EXPAND_DISJ_FCONV - formula conversion, expands disjunctive subformulas
+EXPAND_EXISTS_FCONV - formula conversion, expands existential subformulas
+BASIC_FCONV - formula conversional, subterms, subformulas, tautologies
+LOCAL_BASIC_FCONV - local formula conversional, subterms, subforms, tauts
+MATCH_ACCEPT_TAC - tactic, matches theorem to solve goal
+IMP_RES_TAC - tactic, resolves given implication against assumptions
+RES_TAC	- tactic, resolves assumptions against each other
+rewrite_form - formula conversion, rewrites a formula using theorems
+rewrite_term - formula conversion, rewrites a term using theorems
+REWRITE_TAC - tactic, rewrites goal using theorems
+ASM_REWRITE_TAC - tactic, rewrites goal using theorems and assumptions
+REWRITE_RULE - derived rule, rewrites theorem using theorems
+ASM_REWRITE_RULE - derived rule, rewrites theorem using theorems, assumptions
+REV_REWRITE - derived rule, reverses orientation of term/formula rewrite
+used_rewrites - lists theorems in canonical form for rewriting
+asm_used_rewrites - lists assumptions/theorems in canonical form for rewriting
+print_state - prints levels of goal stack
+set_goal - clears goal stack, sets top goal 
+expandf	- applies tactic to top goal on stack, without validation
+expand	- applies validated tactic to top goal on stack, pushes subgoals
+rotate	- reorders subgoals on top of stack
+backup	- restores goal stack from previous expand, set_goal, set_state
+save_top_thm - saves top theorem on goal stack on theory file
+top_goal - returns top goal on stack
+get_state - returns current goal stack for backup
+set_state - restores goal stack to saved state
+BASIC_STRUCT_TAC - structural induction tactic for deriving other tactics
+STRUCT_TAC - structural induction tactic for interactive use
+gen_struct_axm - builds theory for arbitrary strict/lazy structure
+struct_axm - builds theory of strict/lazy data structure, with induction

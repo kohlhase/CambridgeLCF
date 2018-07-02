@@ -1,0 +1,5 @@
+strip_imp - destructs an implication into (antecedent list, consequent)
+
+strip_imp : (form -> goal)
+
+strip_imp  `A1 ==> ... ==> An ==> B`  --->   ([`A1`,...,`An`], `B`)

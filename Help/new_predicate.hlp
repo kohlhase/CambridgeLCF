@@ -1,0 +1,32 @@
+new_predicate - extends theory with new predicate
+
+EXAMPLE
+
+	new_predicate ("P", `:mytype`);
+	new_predicate ("Q", `:('a,'b)yourtype`);
+
+The predicates "P" and "Q" are added to the current draft.  The predicate "P"
+has a monotype, while "Q" is polymorphic.  In a quotation, the type
+variables 'a and 'b must be determinable from the context (or explicitly
+given).
+
+FAILURE CONDITIONS
+
+no current draft
+name is not an identifier, number, or allowed special character 
+name already used as the name of another constant, infix, or predicate
+
+BUGS
+
+The effect may not be permanently recorded until close_theory is invoked.
+
+SEE ALSO
+
+close_theory
+new_axiom
+new_closed_axiom
+mew_constant
+new_curried_infix
+new_paired_infix
+new_parent
+new_type

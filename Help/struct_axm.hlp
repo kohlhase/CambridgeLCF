@@ -1,0 +1,30 @@
+struct_axm - builds theory of strict/lazy data structure, with induction
+
+struct_axm : (type * string * (string * term list) list) -> void
+
+For defining a data structure in the common case where the structure is
+everywhere strict or everywhere lazy.  Calls gen_struct_axm passing its
+strict/lazy flag in every argument position.  For example,
+
+    struct_axm
+	(`:('a,'b)tree`,
+	 "strict",
+	 [("TIP",[]),
+	  ("UNIT", [`a:'a`,  `t:('a,'b)tree`]),
+	  ("BRANCH", [`b:'b`,  `t:('a,'b)tree`,  `t1:('a,'b)tree`])]);
+
+is equivalent to 
+
+    gen_struct_axm
+	(`:('a,'b)tree`,
+	 [("TIP",[]),
+	  ("UNIT", [("strict", `a:'a`),  ("strict", `t:('a,'b)tree`)]),
+	  ("BRANCH", [("strict", `b:'b`),  
+		      ("strict", `t:('a,'b)tree`),
+		      ("strict", `t1:('a,'b)tree`)])]);
+
+SEE ALSO
+
+BASIC_STRUCT_TAC
+STRUCT_TAC
+gen_struct_axm		(for a description of data structures in LCF)

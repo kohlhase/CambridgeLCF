@@ -1,0 +1,12 @@
+CCONTR	- classical rule, contradiction
+
+CCONTR: form -> thm -> thm
+	 A
+
+
+
+Classical contradiction rule
+
+     [ ~A ]  FALSITY()
+    -------------------
+	     A

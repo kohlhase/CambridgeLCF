@@ -1,0 +1,5 @@
+disjuncts - destructs a disjunction into a list of disjuncts
+
+disjuncts : (form -> form list)
+
+disjuncts  `A1 \/ ... \/ An`   --->  [`A1`,...,`An`]

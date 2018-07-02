@@ -1,0 +1,5 @@
+end_itlist - iteration for non-empty lists, starting with last element
+
+end_itlist f [x1,..., xn]   --->   (f x1 ... (f (xn-1) xn)...)   
+
+FAILS unless n>0 

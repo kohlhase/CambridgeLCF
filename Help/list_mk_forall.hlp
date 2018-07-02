@@ -1,0 +1,5 @@
+list_mk_forall - constructs a universal formula from a list of variables
+
+list_mk_forall : ((term list * form) -> form)
+
+list_mk_forall  ([`x1`,...,`xn`], `A`)   --->  `!x1 ... xn.A`

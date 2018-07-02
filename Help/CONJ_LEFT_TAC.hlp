@@ -1,0 +1,11 @@
+CONJ_LEFT_TAC - tactic, splits conjunctive assumption in two
+
+CONJ_LEFT_TAC: tactic
+
+     [ A/\B ] C
+========================
+     [ A, B ] C
+
+It produces a subgoal in which the conjunctive assumption A/\B has been
+replaced by the two assumptions A and B.  Conjunction elimination is also
+available with STRIP_THM_TAC.

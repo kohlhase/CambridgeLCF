@@ -1,0 +1,10 @@
+SUBS_OCCS - derived rule, forward substitution at occurrences
+
+SUBS_OCCS: ((int list) * thm) list -> thm -> thm
+               li       ti==ui
+
+     t1==u1 ... tn==un      A(t1,...,tn)
+    -------------------------------------
+	         A(u1,...,un)
+
+Replaces each ti by ui in A, at occurrence numbers specified in the list li.

@@ -1,0 +1,8 @@
+*****************************************************************************
+*									    *
+*	TEST								    *
+*								            *
+****************************************************************************
+Test files that may be useful after changes to code.
+
+Contains:	admiss.ml : Check admissability predicate;

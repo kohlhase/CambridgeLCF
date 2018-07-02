@@ -1,0 +1,13 @@
+keyword - on-line documentation, prints database lines mentioning subject
+
+keyword : (string -> void)
+
+Searches a keyword file and prints all lines containing the given string
+argument.  Useful keywords are type, variable, term, PPLAMBDA, rule, tactic,
+tactical, list, etc.  Example:
+
+    keyword "tactics";		prints all entries about tactics.
+
+There are help files for many of the keyword file entries, but not for all of
+them.  In Emacs you can also inspect the keyword files, using the ml-mode
+package.  See the help file for ml-mode.

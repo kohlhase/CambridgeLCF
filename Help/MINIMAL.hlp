@@ -1,0 +1,7 @@
+MINIMAL - PPLAMBDA axiom, UU is the minimal element of inequivalence
+
+MINIMAL : thm
+
+Minimality of UU
+
+|- !x. UU<<x

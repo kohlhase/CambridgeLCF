@@ -1,0 +1,11 @@
+CLOSE_UP - derived rule, discharges assumptions and quantifies over variables
+
+CLOSE_UP : (thm -> thm)
+
+Prepares a theorem for storage on a theory file by discharging all assumptions
+and quantifying over all free variables.
+
+
+ML DEFINITION
+
+val CLOSE_UP = GEN_ALL o DISCH_ALL;

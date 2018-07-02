@@ -1,0 +1,16 @@
+help - on-line documentation, prints help file describing a subject
+
+help : string -> void
+
+Type     help "x";
+to print a message about the subject x.  In particular,
+
+    help "subjects";		lists subjects for which help is available
+    help "changes";		prints a summary of changes from Edinburgh LCF
+    help "intro";		prints the introduction to LCF.
+
+In Emacs you can also inspect help files, using the ml-mode package.  See the
+help file for ml-mode.
+
+The main documentation, of course, is the book "Logic and Computation", by 
+L C Paulson.

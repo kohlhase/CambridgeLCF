@@ -1,0 +1,19 @@
+chktac	- checks goal list and validation using dummy theorems
+
+chktac: ((goal list) * proof) -> thm
+
+The function chktac `proves` the subgoals using mk_fthm, producing theorems
+that include the additional assumption FALSITY().  It applies the validation
+to these theorems.  If the tactic is valid, chktac returns a theorem stating
+the goal, but with the additional assumption.  This validity test is fairly
+reliable; most validations do not notice the assumption FALSITY().  It is
+helpful for debugging new tactics interactively:
+
+    NEW_TAC test_goal;
+    chktac it;
+
+Now compare the resulting theorem with the test_goal.
+
+SEE ALSO
+
+VALID

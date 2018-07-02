@@ -1,0 +1,10 @@
+GEN_ALL	- derived rule, generalizes a theorem over all free variables
+
+GEN_ALL: thm -> thm
+
+
+	    A(xi)
+    ----------------------
+	!x1...xn.A(xi)
+
+Finds all free variables in A, and generalizes over them.

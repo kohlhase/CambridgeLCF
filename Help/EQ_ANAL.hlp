@@ -1,0 +1,5 @@
+EQ_ANAL - PPLAMBDA theorem, analysis of an equivalence
+
+EQ_ANAL : thm
+
+|- `! x y. x==y  ==>  x<<y  /\  y<<x `

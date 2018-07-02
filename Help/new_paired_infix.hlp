@@ -1,0 +1,33 @@
+new_paired_infix - extends theory with paired infix operator
+
+
+EXAMPLE
+
+	new_paired_infix ("-", `:(nat * nat) -> nat`);
+
+The infix operator - is added to the current draft.  Similar to
+new_constant, except that the operator is written in infix position: `i-j`,
+and it must be a paired function of two arguments. The operator may be used
+in prefix position by writing a $ in front: `$- i j`
+
+FAILURE CONDITIONS
+
+no current draft
+name is not an identifier, number, or allowed special character 
+name already used as the name of another constant, infix, or predicate
+type does not have the form	(type1 * type2) -> type3
+
+BUGS
+
+The effect may not be permanently recorded until close_theory is invoked.
+
+SEE ALSO
+
+close_theory
+new_axiom
+new_closed_axiom
+new_constant
+new_curried_infix
+new_parent
+new_predicate
+new_type

@@ -1,0 +1,14 @@
+INST	- rule, instantiating free variables in a theorem
+
+INST (term * term)list -> thm -> thm
+       ti     xi
+
+
+
+Instantiation of Terms
+
+	  A(xi)
+    -----------------
+	  A(ti)
+ 
+where the variables xi do not occur in the assumptions

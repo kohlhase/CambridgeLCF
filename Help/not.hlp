@@ -1,0 +1,3 @@
+not	- boolean negation (prefix)
+
+$not : (bool -> bool)

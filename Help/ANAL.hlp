@@ -1,0 +1,7 @@
+ANAL	- PPLAMBDA rule, analysis of an equivalence
+
+ANAL: thm -> thm
+
+	      t == u
+    --------------------------
+	t << u  /\  u << t

@@ -1,0 +1,5 @@
+list_mk_imp : ((form list * form) -> form)
+
+list_mk_imp - constructs an implication from a list of antecedents
+
+list_mk_imp  ([`A1`,...,`An`], `B`)   --->  `A1 ==> ... ==> An ==> B`

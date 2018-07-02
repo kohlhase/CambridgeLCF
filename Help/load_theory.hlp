@@ -1,0 +1,29 @@
+load_theory - loads an existing theory (fails if not descended from current)
+
+EXAMPLE
+
+	load_theory "oldt";
+
+
+The existing theory "oldt" is loaded and becomes the current theory. 
+No additional types, constants, predicates, parents, or axioms may be 
+declared.
+
+All parents of "oldt" are recursively loaded as well.  No type, constant,
+infix, or predicate of "oldt" may clash with a name already used. In case of
+failure, LCF recovers cleanly, `unloading` any theories it had loaded before
+detecting the failure.
+
+
+FAILURE CONDITIONS
+
+theory does not exist
+theory file damaged
+theory is not a child of the current theory
+
+SEE ALSO
+
+extend_theory 
+new_parent
+new_theory
+

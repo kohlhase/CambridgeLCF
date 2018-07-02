@@ -1,0 +1,4 @@
+BUG: string tokens are now printed strangely in syntax errors as (string . ccc)
+
+FIX: change S-parser.l/parse_failed or change treatment of string tokens to use
+Lisp strings.

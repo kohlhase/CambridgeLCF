@@ -1,0 +1,8 @@
+SPEC_ALL - derived rule, skolemizes outer universal quantifiers
+
+SPEC_ALL: thm -> thm
+
+	!x1 ... xn. A[xi]
+    ------------------------   where the xi' are not free in hyps of A
+	   A[xi'/xi]
+

@@ -1,0 +1,13 @@
+ASSUM_LIST - tactical, gives current assumption list to a tactic
+
+ASSUM_LIST: (thm list -> tactic) -> tactic
+
+This tactical maps ASSUME over the assumptions, and supplies them to a tactic
+function.  Calling 
+
+    ASSUM_LIST thltac ([A1,..., An], B) 
+
+has the effect of
+
+    thltac [`A1|-A1`,...,  `An|-An`]
+

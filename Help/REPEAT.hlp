@@ -1,0 +1,20 @@
+REPEAT	- tactical, applies a tactic repeatedly until failure
+
+REPEAT: tactic -> tactic
+
+The tactic (REPEAT tac) applies tac to the goal, and to all resulting
+subgoals, returning the goals for which tac fails.  REPEAT never fails, but
+may loop.
+
+
+SEE ALSO
+
+ORELSE
+THEN
+THENL
+EVERY
+EVERY_ASSUM
+MAP_EVERY
+FIRST
+FIRST_ASSUM
+MAP_FIRST

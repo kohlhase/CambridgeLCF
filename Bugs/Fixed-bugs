@@ -1,0 +1,175 @@
+-----------------------------------------------------------------------------
+BUG IN S-print [nthcdr]  [Solved 25 July 89;  seems to be a Franz Lisp problem]
+
+Ok, here is my Lisp problem. The following is an extract from the file
+S-print.l:
+
+(de print-nth (n)
+    (print-ml-cases (car (nthcdr n %ex)) %print-depth))
+
+Upon compilation it produces:
+
+larch$liszt test.l
+Compilation begins with Liszt vax version 8.36
+source: test.l, result: test.o
+[load S-constants.l]
+[load llmac.l]
+[load S-macro.l]
+print-nth
+Unbound Variable:  else
+?Error: test.l: : Lisp error during compilation
+
+Exactly the same thing happens if I compile the whole of S-print.l. Since I
+couldn't find a Franz-lisp expert (only Scheme experts) on our floor, I
+narrowed the problem down to the occurence of nthcdr which I replaced with a
+hand coded version (excuse my Lisp, I have never written a proper Lisp
+program):
+
+(de xxxxxx(n l)
+     (cond ((zerop n) l) (t (xxxxxx (plus n (minus 1)) (cdr l)))))
+(de print-nth (n)
+    (print-ml-cases (car (xxxxxx n %ex)) %print-depth))
+
+Everything seems to work fine now. Can you spot the problem in the original
+version of print-nth? (We run Ultrix 2.2 on a Vax 8600).
+
+[SEEMS TO BE A BUG IN CERTAIN VERSIONS OF FRANZ LISP.  FILE
+/usr/lib/lisp/common2.l contains two definitions of nthcdr: an expr and a
+cmacro (containing then and else).  The expr is
+
+
+;--- nthcdr :: do n cdrs of the list and return the result
+;
+; 
+(defun nthcdr (index list)
+   (cond ((fixp index)
+          (cond ((<& index 0)
+                 (cons nil list))
+                ((=& index 0)
+                 list)
+                (t (nthcdr (1- index) (cdr list)))))
+         (t (error "Non fixnum first argument to nthcdr " index))))
+
+]
+-----------------------------------------------------------------------------
+BUG IN TYPECHECKING  [FIXED 24 July 89]
+
+(* ok on valid input: *)
+
+! fst("a","b");
+- it = "a" : string
+
+(* is this correct: ???? *)
+
+! fst 1;
+- it =  : 'a
+
+! fst true;
+- it =  : 'a
+
+! fst"a";
+- it =  : 'a
+----------------------------------------------------------------------------- 
+BUG IN PARSING [fixed 25 July 89]
+
+! (* "commented string" *)  "new string";
+- it = "commented string" : string
+
+The result should be "new string".
+
+-----------------------------------------------------------------------------
+BUG IN PARSING [fixed 25 July 89]
+
+! fst;snd;
+- it =
+fn
+ : ({#1:'a,...} -> 'a)
+
+unbound or unassignable variable: nd
+1 error in typing
+typecheck failed 
+
+(* ok with blank: *)
+
+! fst; snd;
+- it =
+fn
+ : ({#1:'a,...} -> 'a)
+
+- it =
+fn
+ : ({#1:'a,#2:'b,...} -> 'b)
+
+-----------------------------------------------------------------------------
+
+BUG IN SUBSTITUTION [fixed 25 July 89]
+
+Mike Gordon has recently discovered a bug in substitution.  For example:
+
+paired_subst_term([(`z:tr`,`y:tr`)], `\z:tr.(\y:tr.\z. z)y z`);
+- it = `\z'.(\y.\z.z')z z'` : term  (WRONG)
+- it = `\z'.(\y.\z.z)z z'` : term   (SHOULD BE)
+
+paired_subst_form([(`z:tr`,`y:tr`)], `!z:tr.(!y:tr.(!z. z==z)) /\ y == z`);
+- it = `!z'. (!y z. z' == z')  /\  z == z'` : form  (WRONG)
+- it = `!z'. (!y z. z == z)  /\  z == z'` : form   (SHOULD BE)
+ 
+The problem is that the inner "z" need not be renamed but the code fails
+to undo the previous renaming of z to z'.  
+
+-----------------------------------------------------------------------------
+BUG IN REWRITING WITH POLYMORPHIC EQUALITY [resolved 25 July 89]
+
+! show_types true;
+- it = true : bool
+
+! new_theory "TEST";
+- it = {} : unit
+
+! new_constant("F",`:tr->tr`);
+- it = {} : unit
+
+! val COLL = new_closed_axiom("COLL",`!ff:'a->'b. ff UU == UU`);
+- val COLL = |-`!ff:'a -> 'b. (ff:'a -> 'b) UU == UU:'b` : thm
+
+! set_goal([],`F UU == UU`);
+1 subgoal
+`F UU == UU:tr`
+
+- it = {} : unit
+
+! expand (REWRITE_TAC[COLL]);
+1 subgoal
+`equiv UU:tr * tr`
+
+- it = {} : unit
+
+
+Why didn't the tactic finish the goal off and why is the printing of UU==UU
+so strange? Everything works fine if "ff" is declared e.g. of type tr->tr.
+
+REPLY TO T NIPKOW:
+
+Your example involving `!ff:'a->'b. ff UU == UU` indicates a slight weakness
+in rewriting but not really a bug.  This axiom rewrites (F UU == UU), which is 
+really  equiv(PAIR (F UU) UU)  to equiv UU.  The simplifier is not smart 
+enough to realize that UU equals (UU,UU) and that equiv UU is therefore a
+tautology.
+
+Your axiom is inconsistent.  Putting (\x.TT) for ff yields TT==UU.
+-----------------------------------------------------------------------------
+
+BUG IN TYPECHECKING  [FIXED 14 August 92]
+
+Simultaneous declarations were handled incorrectly:
+
+! val a=true;
+- val a = true : bool
+! val a=1 and b=a+1;
+Non-number to add  t
+
+Previously the following was accepted:
+
+! val a = 1 and a = 2;
+- val a = 1 : int
+- val a = 2 : int

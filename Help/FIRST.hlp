@@ -1,0 +1,19 @@
+FIRST	- searching tactical, applies first successful tactic
+
+EXAMPLE
+
+	FIRST [tac1, tac2, tac3]
+
+This is equivalent to 
+
+	tac1 ORELSE (tac2 ORELSE (tac3 ORELSE NO_TAC))
+
+FIRST is a convenient notation for a long list of ORELSE's.  It is alsp useful
+when applied to a function that produces a list of tactics.
+
+
+SEE ALSO
+
+EVERY
+MAP_FIRST
+FIRST_ASSUM

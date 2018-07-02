@@ -1,0 +1,7 @@
+MONO	- PPLAMBDA axiom, function application is monotonic
+
+MONO : thm
+
+Monotonicity of function application
+
+|- !f g x y. f<<g  /\  x<<y  ==>  f x << g y

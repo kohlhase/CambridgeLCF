@@ -1,0 +1,17 @@
+CUT_TAC - tactic for the cut rule, introduces a lemma
+
+CUT_TAC: form -> tactic
+	   A
+
+        B
+===================
+  A       [ A ] B
+
+This tactic implements the cut rule, allowing a lemma A to be introduced into
+the backwards proof.  The first subgoal is to prove A; the second is to prove B
+under the assumption A.
+
+
+SEE ALSO
+
+CUT_THM_TAC

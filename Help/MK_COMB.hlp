@@ -1,0 +1,8 @@
+MK_COMB	- PPLAMBDA rule, constructs equivalent combinations
+
+MK_COMB : (thm * thm) -> thm
+
+	f == g		
+	x == y		
+   --------------	
+     f x == g y	

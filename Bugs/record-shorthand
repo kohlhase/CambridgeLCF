@@ -1,0 +1,12 @@
+BUG: RECORD SHORTHAND NOT ACCEPTED
+
+! val {x,y} = r;
+record: syntax error 
+skipping: , y } = r ; parse failed 
+ 
+
+! val {x=x,y=y} = r;
+- val x = 2 : int
+- val y = 3 : int
+
+-----------------------------------------------------------------------------

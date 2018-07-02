@@ -1,0 +1,7 @@
+CONJ_PAIR - derived rule, breaks conjunction to pair of conjuncts
+
+CONJ_PAIR : thm -> (thm * thm)
+
+
+CONJ_PAIR  `|-A/\B`   --->    ( `|-A` ,  `|-B` )
+

@@ -1,0 +1,39 @@
+print_newline - prints queued text then new line (pretty printing)
+
+print_newline : void -> void
+
+`print_newline()` prints all text queued in the pretty printing buffer,
+followed by a carriage return.  This is the only proper way of printing a
+carriage return.
+
+PRETTY PRINTING.  All text printed by LCF goes through the pretty-printer,
+including text printed by the ML functions print_form, print_term, etc.  The
+pretty-printer queues the next until it determines where line breaks will be
+needed; at any point, the queue may hold up to three lines of text.  The
+pretty- printer expects control commands to appear among the text, telling it
+where and how to break lines.  It considers text to consist of nested blocks;
+a block that cannot fit on one line is broken in designated places.  You
+program the pretty-printer by calling ML functions.
+
+
+SEE ALSO
+
+Oppen, Derek C., `Pretty Printing`,
+ACM Transactions on Programming Languages and Systems, 
+October 1980,  pages 465-483.
+
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_tok 
+print_bool 
+print_void 
+print_int
+print_term
+print_form 
+print_type 
+print_thm 
+print_theory
+show_types 

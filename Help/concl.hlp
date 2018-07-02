@@ -1,0 +1,9 @@
+concl	- theorem destructor, returns conclusion
+
+concl : thm -> form
+
+Returns the conclusion of a theorem.
+
+EXAMPLE
+
+concl (ASSUME `p==TT`)    --->    `p == TT`

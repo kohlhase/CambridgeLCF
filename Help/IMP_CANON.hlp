@@ -1,0 +1,22 @@
+IMP_CANON - derived rule, puts theorem into canonical form, horn clauses
+
+IMP_CANON : (thm -> thm list)
+
+Puts a theorem 	 |- !x. A1 ==> !y. A2 ==> ... ==> Am ==>  B 
+into canonical form: strips out quantifiers, splits conjunctions apart.
+
+	A /\ B		--->		A,   B     (appends calls for A, B)
+	(A/\B)==>C	--->		A==> (B==>C)
+	(A\/B)==>C	--->		A==>C, B==>C
+	(?x.A)==>B	--->		A[x'/x] ==> B
+	!x.A		--->		A[x'/x]
+
+
+This canonical form is used for rewrite rules, for example.
+
+SEE ALSO
+
+L.C. Paulson,
+A higher-order implementation of rewriting,
+Science of Computer Programming 3 (1983),
+pages 119-149.

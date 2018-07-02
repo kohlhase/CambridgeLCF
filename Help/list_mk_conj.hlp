@@ -1,0 +1,7 @@
+list_mk_conj - constructs a conjunction of a list of elements
+
+list_mk_conj : (form list -> form)
+
+list_mk_conj	[`A1`,...,`An`]  --->  `A1 /\ ... /\ An`
+
+FAILS unless n>0

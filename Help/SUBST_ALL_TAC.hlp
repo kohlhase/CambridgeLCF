@@ -1,0 +1,13 @@
+SUBST_ALL_TAC - tactic, substitutes in goal and assumptions
+
+SUBST_ALL_TAC: thm -> tactic
+	      |-t==u
+
+      [ AL(t) ] B(t)
+    ==================
+      [ AL(u) ] B(u)
+
+
+The symbol AL stands for the entire assumption list.  SUBST_ALL_TAC breaches
+the style of natural deduction, where the assumptions are kept fixed.
+However, the tactic is valid and occasionally useful.

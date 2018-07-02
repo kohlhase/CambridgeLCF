@@ -1,0 +1,6 @@
+LESS_TRANS - PPLAMBDA axiom, inequivalence is transitive
+
+LESS_TRANS : thm
+
+|- !x y z. x<<y  /\  y<<z  ==>  x<<z
+

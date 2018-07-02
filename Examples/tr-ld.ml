@@ -1,0 +1,37 @@
+(*tr-ld.ml  Commands for loading theory tr*)
+
+load_theory "tr";
+val NOT_CLAUSES = theorem "tr" "NOT_CLAUSES";
+val AND_CLAUSES = theorem "tr" "AND_CLAUSES";
+val OR_CLAUSES = theorem "tr" "OR_CLAUSES";
+val AND_R_TT = theorem "tr" "AND_R_TT";
+val AND_R_FF = theorem "tr" "AND_R_FF";
+val OR_R_FF = theorem "tr" "OR_R_FF";
+val OR_R_TT = theorem "tr" "OR_R_TT";
+val AND_EQ_TT = theorem "tr" "AND_EQ_TT";
+val AND_EQ_FF = theorem "tr" "AND_EQ_FF";
+val OR_EQ_FF = theorem "tr" "OR_EQ_FF";
+val OR_EQ_TT = theorem "tr" "OR_EQ_TT";
+val AND_EQ_TT_IFF = theorem "tr" "AND_EQ_TT_IFF";
+val AND_EQ_FF_IFF = theorem "tr" "AND_EQ_FF_IFF";
+val OR_EQ_FF_IFF = theorem "tr" "OR_EQ_FF_IFF";
+val OR_EQ_TT_IFF = theorem "tr" "OR_EQ_TT_IFF";
+val NOT_EQ_TT_IFF = theorem "tr" "NOT_EQ_TT_IFF";
+val NOT_EQ_FF_IFF = theorem "tr" "NOT_EQ_FF_IFF";
+val NOT_EQ_TT_FF_IFF = theorem "tr" "NOT_EQ_TT_FF_IFF";
+val NOT_EQ_FF_TT_IFF = theorem "tr" "NOT_EQ_FF_TT_IFF";
+val AND_COMM = theorem "tr" "AND_COMM";
+val OR_COMM = theorem "tr" "OR_COMM";
+val FLAT = theorem "tr" "FLAT";
+val COND_DEFINED = theorem "tr" "COND_DEFINED";
+val COND_NOT = theorem "tr" "COND_NOT";
+val FUN_COND = theorem "tr" "FUN_COND";
+val COND_COND_Y = theorem "tr" "COND_COND_Y";
+val COND_X_COND = theorem "tr" "COND_X_COND";
+val COND_X_X = theorem "tr" "COND_X_X";
+val EQ_FF_IFF = theorem "tr" "EQ_FF_IFF";
+val EQ_TT_IFF = theorem "tr" "EQ_TT_IFF";
+val IFF_IFF_EQ = theorem "tr" "IFF_IFF_EQ";
+val OR_TOTAL = theorem "tr" "OR_TOTAL";
+val AND_TOTAL = theorem "tr" "AND_TOTAL";
+val NOT_TOTAL = theorem "tr" "NOT_TOTAL";

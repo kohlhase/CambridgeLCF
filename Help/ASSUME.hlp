@@ -1,0 +1,10 @@
+ASSUME	- rule, assuming a formula
+
+ASSUME: form -> thm
+	 A
+
+
+Assumption
+
+    --------------
+       [ A ]  A

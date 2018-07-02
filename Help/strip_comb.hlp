@@ -1,0 +1,5 @@
+strip_comb - destructs a curried combination into (rator, rand list)
+
+strip_comb : (term -> (term * term list))
+
+strip_comb  `t u1 ... un`   --->   (`t`, [`u1`,...,`un`])

@@ -1,0 +1,19 @@
+get_state - returns current goal stack for backup
+
+get_state: void -> goalstack
+(part of subgoal package)
+
+Returns the current proof state, which you can store in a variable for
+additional backup.
+
+SEE ALSO
+
+set_goal   (for description of subgoal package)
+expandf
+expand
+rotate
+save_top_thm
+top_goal
+backup
+set_state
+print_state

@@ -1,0 +1,13 @@
+FAIL_TAC - tactic, always fails with given string
+
+FAIL_TAC: string -> tactic
+
+Always fails.  Useful for producing error messages in tactics built up from
+other tactics and tacticals.  A standard use is
+
+	MY_TAC   THEN   FAIL_TAC "MY_TAC left unsolved goals!!"
+
+
+SEE ALSO
+
+NO_TAC

@@ -1,0 +1,7 @@
+LESS_REFL - PPLAMBDA axiom, inequivalence is reflexive
+
+LESS_REFL : thm
+
+Partial ordering
+
+|- !x. x<<x

@@ -1,0 +1,7 @@
+DISCH_TAC - tactic, moves antecedent of goal to assumptions
+
+DISCH_TAC: tactic
+
+	A ==> B
+    ==============
+       [ A ]  B

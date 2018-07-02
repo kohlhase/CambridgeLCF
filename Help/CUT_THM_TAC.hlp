@@ -1,0 +1,8 @@
+CUT_THM_TAC - tactic for cut rule, adds theorem to assumption list
+
+CUT_THM_TAC: thm -> tactic
+	    |-A
+
+	C
+   ===========
+      [A] C

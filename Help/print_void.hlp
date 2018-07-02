@@ -1,0 +1,24 @@
+print_void - prints ()
+
+print_void : (void -> void)
+
+Prints the value ()  -- included for completeness.
+
+
+SEE ALSO
+
+print_newline		(for description of pretty printing)
+print_begin
+print_ibegin
+print_end
+print_break
+print_string
+print_tok 
+print_bool 
+print_int
+print_term
+print_form 
+print_type 
+print_thm 
+print_theory
+show_types 

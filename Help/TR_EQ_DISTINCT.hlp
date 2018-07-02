@@ -1,0 +1,10 @@
+TR_EQ_DISTINCT - PPLAMBDA theorem, truth values are distinct
+
+TR_EQ_DISTINCT : thm
+
+|-`~ TT == FF  /\
+   ~ FF == TT  /\
+   ~ TT == UU  /\
+   ~ UU == TT  /\
+   ~ FF == UU  /\
+   ~ UU == FF`

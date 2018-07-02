@@ -1,0 +1,7 @@
+CONJ_TAC - tactic, splits conjunctive goal in two
+
+CONJ_TAC: tactic
+
+	A /\ B
+     ===========
+	A    B

@@ -1,0 +1,14 @@
+EXISTS_LEFT_TAC - tactic, eliminates existential assumption
+
+EXISTS_LEFT_TAC: tactic
+
+      [ ?x.A ] B
+=======================
+      [ A[x'/x] ] B
+
+The tactic EXISTS_LEFT_TAC implements the sequent rule exists-left.  It
+searches for an assumption of the form ?x.A and replaces it by A[x'/x], where
+x' is a variant of x not free in ?x.A, B, or the assumptions.  Exists
+elimination is also provided with STRIP_THM_TAC.
+
+

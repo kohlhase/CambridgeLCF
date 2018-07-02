@@ -1,0 +1,10 @@
+MK_ABS	- PPLAMBDA rule, constructs (in)equivalent abstractions
+
+MK_ABS: thm -> thm
+
+      !x. u =< v
+   ----------------
+     \x.u =< \x.v
+
+The symbol  =< stands for either of the relations == or <<, the same at each
+occurence within the rule.

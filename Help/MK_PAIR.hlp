@@ -1,0 +1,7 @@
+MK_PAIR	- PPLAMBDA axiom, every element of type `:'a * 'b` is a pair
+
+MK_PAIR	: thm
+
+Ordered pairs
+
+|- !x. (FST x, SND x) == x

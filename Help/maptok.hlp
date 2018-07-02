@@ -1,0 +1,11 @@
+maptok	- maps a function over the words in a string
+
+maptok : - : ((string -> 'a) -> string -> 'a list)
+
+Provides shorthand for mapping a function over a list of strings.
+
+EXAMPLE
+
+    maptok f "are you there" 
+
+    returns the list  [f "are", f "you", f "there"]

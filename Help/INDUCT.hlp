@@ -1,0 +1,17 @@
+INDUCT	- rule, simultaneous stepwise computation induction
+
+INDUCT : (term list -> thm list -> (thm * thm) -> thm)
+
+Scott Fixed-Point Induction
+
+INDUCT: (term list) -> (thm list) -> (thm * thm) -> thm
+	    funi	   Bj
+
+
+             B1 ... Bm             A(UU,...,UU)     
+    !f1 ... fn. A(f1,...,fn)  ==>  A(fun1 f1,..., funn fn)  
+---------------------------------------------------------------
+		    A(FIX fun1,...,FIX funn)
+
+where A(x1,...,xn) admits induction in each of the variables x1, ..., xn.
+The theorems B1...Bm state type properties.

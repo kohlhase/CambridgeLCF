@@ -1,0 +1,35 @@
+new_type - extends theory with new type
+
+
+EXAMPLE
+
+	new_type 0 "mytype";
+
+	new_type 2 "yourtype";
+
+The type operators "mytype" and "yourtype" are added to the current draft.
+The type "mytype" is monomorphic, since it has arity zero;  "yourtype" is a
+type operator that takes two arguments.
+
+
+FAILURE CONDITIONS
+
+no current draft
+type name is not an identifier
+name already used as the name of another type
+arity is negative
+
+BUGS
+
+The effect may not be permanently recorded until close_theory is invoked.
+
+SEE ALSO
+
+close_theory
+new_axiom
+new_closed_axiom
+new_constant
+new_curried_infix
+new_paired_infix
+new_parent
+new_predicate

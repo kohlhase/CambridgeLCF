@@ -1,0 +1,31 @@
+set_goal - clears goal stack, sets top goal 
+
+set_goal: goal -> void
+
+Sets a new goal into the subgoal package.
+
+When conducting a proof that involves many subgoals and tactics, you must keep
+track of all the validations and compose them in the correct order.  While
+this is feasible even in large proofs, it is tedious.  LCF provides a package
+for building and traversing the tree of subgoals, stacking the validations and
+applying them properly.
+
+The package implements a simple framework for interactive proof.  You create
+and traverse the proof tree top-down.  Using a tactic, you expand the current
+goal into subgoals and validation, which are pushed onto the goal stack.  You
+can consider these subgoals in any order.  If the tactic solve the goal
+(returns an empty subgoal list), then the package proceeds to the next goal in
+the tree.  It saves several preceeding states, to which you can return if you
+make a mistake in the proof.
+
+SEE ALSO
+
+expandf
+expand
+rotate
+backup
+save_top_thm
+top_goal
+get_state
+set_state
+print_state

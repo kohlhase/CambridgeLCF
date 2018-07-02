@@ -1,0 +1,35 @@
+new_constant - extends theory with new constant
+
+EXAMPLE
+
+	new_constant ("C", `:mytype`);
+	new_constant ("F", `:('a,'b)yourtype`);
+
+The constants "C" and "F" are added to the current draft.  The constant "C"
+has a monotype, while "F" is polymorphic.  In a quotation, the type
+variables 'a and 'b must be determinable from the context (or explicitly
+given).
+
+
+
+FAILURE CONDITIONS
+
+no current draft
+name is not an identifier, number, or allowed special character 
+name already used as the name of another constant, infix, or predicate
+
+
+BUGS
+
+The effect may not be permanently recorded until close_theory is invoked.
+
+SEE ALSO
+
+close_theory
+new_axiom
+new_closed_axiom
+new_curried_infix
+new_paired_infix
+new_parent
+new_predicate
+new_type

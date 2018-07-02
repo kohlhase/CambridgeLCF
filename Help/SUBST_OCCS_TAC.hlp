@@ -1,0 +1,9 @@
+SUBST_OCCS_TAC - tactic, substitutes in goal at occurrences
+
+SUBST_OCCS_TAC: ((int list) * thm) list -> tactic
+for theorems [|-t1==u1,..., |-tn==un]
+with occurrence lists [o1,..., ok] for each theorem
+
+       A(t1, ..., tn)
+    ===================== 
+       A(u1, ..., un)

@@ -1,0 +1,20 @@
+FIRST_ASSUM - searching tactical, maps tactic function over assumptions
+
+FIRST_ASSUM: (thm -> tactic) -> tactic
+
+The tactic
+
+    FIRST_ASSUM thtac ([A1,..., An], B)
+
+has the effect of
+
+    FIRST [thtac `A1|-A1`,...,  thtac `An|-An`]
+
+EXAMPLE
+
+The tactic
+
+    FIRST_ASSUM (fn asm => CONTR_TAC asm  ORELSE  ACCEPT_TAC asm)
+
+searches the assumptions for either a contradiction or the desired
+conclusion.

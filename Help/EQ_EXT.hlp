@@ -1,0 +1,5 @@
+EQ_EXT	- PPLAMBDA theorem stating extensionality of equivalence for functions
+
+EQ_EXT : thm
+
+|- `!f g. (!x. f x == g x)  ==>  f==g`

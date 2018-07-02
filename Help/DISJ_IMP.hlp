@@ -1,0 +1,7 @@
+DISJ_IMP - derived rule, converting disjunction to implication
+
+DISJ_IMP: thm -> thm
+
+	A \/ B
+    --------------
+       ~ A ==> B

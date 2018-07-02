@@ -1,0 +1,7 @@
+UNDISCH	- derived rule, un-discharges antecedent of implication
+
+UNDISCH: thm -> thm
+
+	A  ==>  B
+    -----------------
+	  [A] B 

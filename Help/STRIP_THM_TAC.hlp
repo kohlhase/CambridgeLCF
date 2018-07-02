@@ -1,0 +1,37 @@
+STRIP_THM_TAC - tactic, breaks up theorem, assumes parts
+
+STRIP_THM_TAC: thm -> tactic
+
+CUT_THM_TAC always puts the theorem, exactly as given, onto the assumption
+list.  STRIP_THM_TAC first breaks the theorem apart, stripping off certain
+outer connectives, then puts the resulting pieces on the assumption list.  It
+adds a conjunction as separate conjuncts, validated by the inference rules
+CONJUNCT1 and CONJUNCT2.  It causes a case split given a disjunction,
+validated by the rule DISJ_CASES.  It eliminates an existential quantifier by
+choosing an arbitrary variable, validated by the rule CHOOSE.  It also
+attempts to solve the goal using ACCEPT_TAC and CONTR_TAC.
+
+Its effect is suggested by the following diagrams, except that the new
+assumptions cause recursive calls to STRIP_THM_TAC whenever possible.  Thus
+it does not add contradictions, conjunctions, disjunctions, or existential
+formulas to the assumption list.
+
+for |-A/\B
+
+	C
+   ============ 
+     [A; B] C
+
+
+for |-A\/B
+
+	    C
+   ================= 
+    [A] C     [B] C
+
+
+for |-?x.A(x)   	(chooses x' as a variant of x)
+
+	  C
+   =============== 
+     [ A(x') ] C

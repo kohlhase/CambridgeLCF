@@ -1,0 +1,5 @@
+LESS_ANTI_SYM - PPLAMBDA axiom, inequivalence is anti-symmetric
+
+LESS_ANTI_SYM : thm
+
+|- !x y. x<<y  /\  y<<x  ==>  x==y

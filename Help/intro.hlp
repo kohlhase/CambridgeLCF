@@ -1,0 +1,39 @@
+Cambridge LCF is an interactive theorem-prover for the Logic of Computable
+Functions.  It was derived from Edinburgh LCF. 
+
+Cambridge LCF has its own help system.  There are two forms of on-line
+documentation: a keyword file, and a collection of help files.
+
+Type 	keyword "x";
+to search the keyword file for references to the subject x.  For instance,
+
+    keyword "tactic";		prints all entries about tactics.
+    keyword "conj";		prints all entries about conjunction.
+
+
+Type     help "x";
+to print a message about the subject x.  In particular,
+
+    help "help";       prints more information about the help command
+    help "keyword";    prints more information about the keyword command
+
+
+Type	abc;
+to find the type of any ML object abc, since ML prints the type of any
+expression it is given.  It also prints the value, but most commands are
+functions, and have no printable value.
+
+
+Help files use the following notation for tactics:
+
+       original goal
+===============================
+subgoal 1    ...      subgoal n
+
+Assumptions are mentioned in square brackets, as in [A], only if they are
+added or removed.
+
+
+ML USERS:  ML shares the same help system as LCF.  Everything present in ML is
+also present in LCF, but most of the help files document things present only
+in LCF.

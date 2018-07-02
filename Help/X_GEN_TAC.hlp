@@ -1,0 +1,11 @@
+X_GEN_TAC - tactic, strips universal quantifier using given variable 
+
+X_GEN_TAC: term -> tactic
+	    y
+
+  !x.A(x)
+ =========
+   A(y)
+
+valid if the variable y is not free in goal or assumptions
+(for use in tactical programming)

@@ -1,0 +1,8 @@
+CONTR_TAC - tactic, solves goal given contradictory theorem
+
+CONTR_TAC:  thm  -> tactic
+	|-FALSITY()
+
+	 A
+    ===========
+	 -

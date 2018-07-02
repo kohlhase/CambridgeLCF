@@ -1,0 +1,11 @@
+EVERY_ASSUM - sequencing tactical, maps tactic function over assumptions
+
+EVERY_ASSUM: (thm -> tactic) -> tactic
+
+The tactic
+
+    EVERY_ASSUM thtac ([A1,..., An], B)
+
+has the effect of
+
+    EVERY [thtac `A1|-A1`,...,  thtac `An|-An`]

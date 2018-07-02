@@ -1,0 +1,14 @@
+INDUCT_TAC - tactic, computation induction, checks admissibility
+
+INDUCT_TAC: (thm list) -> (term * term)list -> tactic
+	    type thms	   funi   fi
+
+
+            A(FIX fun1, ..., FIX funn)
+======================================================
+			A(UU)   
+!f1...fn. A(f1, ..., fn)  ==>  A(fun1 f1, ..., funn fn)
+
+
+Uses type theorems and TR_CASES in testing admissability, as described in
+the PPLAMBDA reference manual.

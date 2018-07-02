@@ -1,0 +1,9 @@
+DISJ_CASES - rule, disjunction elimination, causes case split
+
+DISJ_CASES: thm -> thm -> thm -> thm
+
+Disjunction elimination
+
+	A \/ B	   [ A ] C     [ B ] C
+   ---------------------------------------
+                     C

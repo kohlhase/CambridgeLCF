@@ -1,0 +1,9 @@
+CONJ	- rule, conjunction introduction
+
+CONJ: thm -> thm -> thm
+
+Conjunction introduction
+
+	A      B
+    ----------------
+	 A /\ B

@@ -1,0 +1,25 @@
+axiom	- returns an axiom from a theory
+
+EXAMPLE
+
+	axiom "PPLAMB" "LESS_TRANS";
+
+	axiom "-" "commute";
+
+
+Loads the axiom "LESS_TRANS" from the theory "PPLAMB", and loads the
+axiom "commute" from the current draft/theory.
+
+
+FAILURE CONDITIONS
+
+theory does not exist
+theory file damaged
+axiom does not exist on given theory
+
+SEE ALSO
+
+axioms
+theorem
+theorems
+

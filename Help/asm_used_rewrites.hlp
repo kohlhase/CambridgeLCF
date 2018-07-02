@@ -1,0 +1,6 @@
+asm_used_rewrites - lists assumptions/theorems in canonical form for rewriting
+
+asm_used_rewrites: (thm list) -> goal -> (thm list * thm list)
+
+Calls used_rewrites, adding the assumptions of the goal to the list of
+theorems.  (Note that it has a different type from used_rewrites!)

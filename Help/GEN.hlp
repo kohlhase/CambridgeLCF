@@ -1,0 +1,12 @@
+GEN	- rule, universal introduction, generalizes a theorem
+
+GEN: term -> thm -> thm
+      x
+
+
+
+Forall introduction
+
+ 	A	 
+    ---------  where the variable `x` is not free in assumptions of premise
+      !x.A

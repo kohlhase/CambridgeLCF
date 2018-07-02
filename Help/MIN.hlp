@@ -1,0 +1,7 @@
+MIN	- PPLAMBDA rule, minimality of UU
+
+MIN: term -> thm
+       t
+
+
+MIN `t`  --->   |- `UU << t`

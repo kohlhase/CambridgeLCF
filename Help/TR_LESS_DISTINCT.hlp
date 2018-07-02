@@ -1,0 +1,5 @@
+TR_LESS_DISTINCT - PPLAMBDA axiom, the truth values are pairwise unrelated
+
+TR_LESS_DISTINCT : thm
+
+|-  ~ TT<<FF  /\  ~ FF<<TT  /\  ~ TT<<UU  /\  ~FF<<UU

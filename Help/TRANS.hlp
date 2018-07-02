@@ -1,0 +1,10 @@
+TRANS	- PPLAMBDA rule, transitivity of (in)equivalence
+
+TRANS: thm -> thm -> thm
+
+      t =< u       u =< v	possibly different relations
+   -------------------------
+	     t =< v		<< unless both hypotheses use ==
+
+The symbol  =< stands for either of the relations == or <<.  TRANS is a infix
+operator.

@@ -1,0 +1,18 @@
+IMP_RES_TAC - tactic, resolves given implication against assumptions
+
+IMP_RES_TAC: thm -> tactic
+
+Suppose we have a list of facts, [|-A1,..., |-Am], and an implication
+
+    B1 ==> ... ==> Bn ==> C .
+
+Resolution consists of matching the antecedents against the facts, attempting
+to prove some instance of C by Modus Ponens.  Currently LCF does not provide
+unification, only matching -- the facts are not instantiated, only the
+implication is.  If some but not all antecedents can be proved, then
+resolution produces results that are implications.
+
+The tactic IMP_RES_TAC impth resolves the theorem impth, which should be an
+implication, against the assumption list.  It adds the results to the
+assumption list using STRIP_THM_TAC; in particular, it solves the goal if
+it finds a contradiction.

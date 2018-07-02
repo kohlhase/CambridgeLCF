@@ -1,0 +1,11 @@
+COND_CLAUSES - PPLAMBDA axiom defining the conditional term 
+
+COND_CLAUSES : thm
+
+Conditional expressions
+
+		!x y. UU => x | y == UU  /\
+		      TT => x | y == x   /\
+		      FF => x | y == y
+
+

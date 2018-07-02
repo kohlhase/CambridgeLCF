@@ -1,0 +1,30 @@
+THENL	- tactical, applies a different tactic to each goal
+
+THENL : tactic -> tactic list -> tactic
+
+The tactic (tac THENL[tac1,...,tacn]) applies tac to the
+goal, yielding n subgoals.  Applies taci to subgoal i for each i.  Combines
+validations like THEN does.
+
+THENL actually has a more general type, and can be used for `tactic-like`
+functions, as mentioned in the Edinburgh LCF manual.
+
+THENL : (('a -> ('b list * ('c list -> 'd))) ->
+	 ('b -> ('e list * ('f list -> 'c))) list ->
+	 'a -> ('e list * ('f list -> 'd)))
+
+
+FAILURE CONDITION
+
+The tactic tac does not yield exactly n subgoals.
+
+
+
+SEE ALSO
+
+ORELSE
+REPEAT
+THEN
+EVERY
+EVERY_ASSUM
+MAP_EVERY

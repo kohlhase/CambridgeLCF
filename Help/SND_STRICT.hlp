@@ -1,0 +1,5 @@
+SND_STRICT - PPLAMBDA theorem, SND is strict
+
+SND_STRICT : thm
+
+|-`SND (UU:'a * 'b) == UU:'b`

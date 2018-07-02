@@ -1,0 +1,14 @@
+FORALL_LEFT_TAC - tactic, instantiates universal assumption (forall)
+
+FORALL_LEFT_TAC: term*term -> tactic
+
+      [ !x.A ] C
+=======================
+      [ A[t/x] ] C
+
+The tactic FORALL_LEFT_TAC implements the sequent rule forall-left.  Given a
+variable x and a goal, it searches for an assumption of the form ?x.A for the
+same x.  It makes a new assumption A[t/x].
+
+Another universal elimination tactic is SPEC_TAC.
+

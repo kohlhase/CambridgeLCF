@@ -1,0 +1,9 @@
+ALL_TAC	- tactic, passes on goal unchanged, identity for THEN
+
+ALL_TAC: tactic
+
+	A
+    =========
+        A
+
+Never fails.

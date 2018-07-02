@@ -1,0 +1,3 @@
+null	- list discriminator, tests for empty list
+
+null : ('a list -> bool)

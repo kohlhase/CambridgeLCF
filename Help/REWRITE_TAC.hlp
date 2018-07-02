@@ -1,0 +1,33 @@
+REWRITE_TAC - tactic, rewrites goal using theorems
+
+REWRITE_TAC: (thm list) -> tactic
+
+REWRITE_TAC transforms the goal using the given list of theorems as rewrite
+rules.  The inference rule IMP_CANON puts each theorem into the form
+
+    A1 ==> ... ==> An ==>   t==u
+    A1 ==> ... ==> An ==>   (B <=> C)
+
+A rewriting step replaces either a term or a formula.  An instance of the left
+side (t or B) of a rule is replaced by the corresponding instance of the right
+side (u or C), if recursive invocation of rewriting succeeds in proving the
+instances of the antecedents Ai.
+
+Besides explicit formula rewrites such as B<=>C, any theorem asserting a
+predicate P causes rewriting of P to TRUTH().  Any theorem asserting the
+negation ~P causes rewriting of P to FALSITY().
+
+Tautologous formulas such as A/\TRUTH() are simplified.  Beta-conversion
+occurs whenever possible.  Disjunctions are expanded wherever they appear as
+conjuncts or antedecents.  In particular, (A\/B)==>C becomes
+(A==>C)/\(B==>C), resulting in a case split.  Existential formulas are
+similarly expanded; thus (?x.A(x))==>C becomes !x'.(A(x')==>C).
+
+The tactics introduce local assumptions.  For a conjunction A/\B or an
+implication A==>B, the formula A is assumed true when rewriting B.
+
+Rewriting continues as long as rules apply.  This may result in looping -- for
+instance if a term t gets rewritten, in one or more steps, to a term
+containing t.  In particular you must never use commutative rules such as
+x+y==y+x.  An implicative rewrite A ==> t==u will probably loop if t occurs
+in A.  Looping is tricky because it may involve several rewrite rules.

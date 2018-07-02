@@ -1,0 +1,10 @@
+LIST_MP - derived rule, iterated modus ponens
+
+LIST_MP: (thm list) -> thm -> thm
+	     Ai
+
+
+      A1 ... An      A1 ==> ... ==> An ==> B
+    ------------------------------------------
+		      B
+

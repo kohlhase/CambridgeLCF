@@ -1,0 +1,10 @@
+ETA_EQ	- PPLAMBDA theorem, eta-conversion
+
+ETA_EQ : thm
+
+
+|-`!f:'a -> 'b. \x.(f:'a -> 'b) x == f:'a -> 'b`
+
+It may seem surprising that eta-conversion can be expressed as a theorem,
+since it involves the syntactic condition that x not appear free in f.
+However, the instances of this theorem all satisfy that condition.

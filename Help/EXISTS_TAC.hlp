@@ -1,0 +1,8 @@
+EXISTS_TAC - tactic, states value for existential variable
+
+EXISTS_TAC: term -> tactic
+	      t
+
+       ?x.A(x)
+    =============
+	A(t)

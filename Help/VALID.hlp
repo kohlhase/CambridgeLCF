@@ -1,0 +1,13 @@
+VALID	- tactical, fails if tactic's result is invalid (approximate test)
+
+VALID: tactic -> tactic
+
+The tactical VALID constructs (usually) valid tactics.  It applies tac to the
+goal, then tests the resulting validation on dummy theorems.  If the resulting
+theorem differs from the goal, or contains additional assumptions, then VALID
+fails; otherwise it returns the goal list and validation.  VALID uses chktac,
+which is imperfect but fairly reliable.
+
+SEE ALSO 
+
+chktac

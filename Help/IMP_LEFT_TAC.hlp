@@ -1,0 +1,13 @@
+IMP_LEFT_TAC - tactic, uses implicative assumption
+
+IMP_LEFT_TAC: tactic
+
+      [ A==>B ] C
+=======================
+[ A==>B ] A     [ B ] C
+
+It finds an assumption of the form A==>B and produces two subgoals:  to prove
+A, and to prove C assuming B.
+
+Another implication elimination tactic is MP_TAC.
+

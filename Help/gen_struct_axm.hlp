@@ -1,0 +1,92 @@
+gen_struct_axm - builds theory for arbitrary strict/lazy structure
+
+gen_struct_axm : (type * (string * (string * term) list) list) -> void
+
+Causes LCF to extend the current theory with constants, axioms, types, etc.,
+to define a data structure.  The structure is tree-like in that its elements
+are all constructions of the form (constr arg1 ... argn).  You specify the
+names and argument lists of constructor functions.  The structure may be
+recursive and polymorphic;  each constructor may be strict in specified
+arguments and lazy in others.  For instance,
+
+new_type 2 "tree";
+
+gen_struct_axm
+    (`:('a,'b)tree`,
+     [("TIP",[]),
+      ("UNIT",   [("strict", `a:'a`),  ("strict", `t:('a,'b)tree`)]),
+      ("BRANCH", [("strict", `b:'b`),  
+                  ("strict", `t:('a,'b)tree`),
+                  ("strict", `t1:('a,'b)tree`)])]);
+
+declares a type for polymorphic trees.  The constructor TIP has 0 arguments;
+UNIT has strict arguments a and t, while BRANCH has strict arguments b, t, and
+t1.  Note that UNIT and BRANCH have arguments that are themselves trees.  Any
+argument can be made lazy by putting "lazy" in place of "strict" in the
+corresponding position.  The call to new_type must come first, for otherwise
+the first argument of gen_struct_axm would not be a legal ML expression.  It
+is essential to put each data structure in a separate theory, to avoid
+clashing axiom names.
+
+The invocation above declares constants TIP, UNIT, and BRANCH, and also axioms
+such as the cases axiom CASES
+
+!abs'.abs' == UU  \/
+      abs' == TIP  \/
+      (?a t. abs' == UNIT a t  /\  ~ a==UU  /\  ~ t==UU)  \/
+      (?b t t1. abs' == BRANCH b t t1  /\  ~ b==UU  /\  ~ t==UU  /\  ~ t1==UU)
+
+the strictness axiom STRICT
+
+TRUTH ()  /\
+(!a t. TRUTH ()  /\  UNIT UU t == UU  /\  UNIT a UU == UU)  /\
+(!b t t1. TRUTH ()  /\  BRANCH UU t t1 == UU  /\  
+                BRANCH b UU t1 == UU  /\  BRANCH b t UU == UU)
+
+the definedness axiom DEFINED
+
+~ TIP==UU  /\
+(!a t. ~ a==UU  ==>  ~ t==UU  ==>  ~ UNIT a t == UU)  /\
+(!b t t1. ~ b==UU  ==>  ~ t==UU  ==>  ~ t1==UU  ==>  ~ BRANCH b t t1 == UU)
+
+and an axiom that is a large conjunction asserting distinctness of different
+constructors
+
+!b t t1 a t'. ~ b==UU  ==>  ~ t==UU  ==>  ~ t1==UU  ==>
+              ~ a==UU  ==>  ~ t'==UU  ==>
+      ~ BRANCH b t t1 << UNIT a t'
+
+and invertability for a single constructor
+
+!a t a' t'. ~ a==UU  ==>  ~ t==UU  ==>
+            ~ a'==UU  ==> ~ t'==UU  ==>
+       UNIT a t << UNIT a' t'  ==>
+       TRUTH ()  /\  a << a'  /\  t << t'
+
+Theorems automatically proved include distinctness with respect to equivalence
+
+!b t t1 a t'. ~ b==UU  ==> ~ t==UU  ==> ~ t1==UU  ==>
+	      ~ a==UU  ==> ~ t'==UU  ==>
+     (BRANCH b t t1 == UNIT a t'  <=>  FALSITY ())
+
+the invertability of equivalence
+
+!a t a' t'. ~ a==UU  ==>  ~ t==UU  ==>
+            ~ a'==UU  ==> ~ t'==UU  ==>
+     (UNIT a t == UNIT a' t'  <=>  TRUTH ()  /\  a == a'  /\  t == t')
+
+and also flatness FLAT
+
+(!a a'. a << a'  ==>  UU == a  \/  a == a')  ==>
+(!b b'. b << b'  ==>  UU == b  \/  b == b')  ==>
+(!abs' abs''. abs' << abs''  ==>  UU == abs'  \/  abs' == abs'')
+
+Try executing this sample call to gen_struct_axm, then inspect the theory
+using print_theory.
+
+SEE ALSO
+
+BASIC_STRUCT_TAC
+STRUCT_TAC
+struct_axm
+

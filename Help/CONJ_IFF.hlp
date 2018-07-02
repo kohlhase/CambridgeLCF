@@ -1,0 +1,9 @@
+CONJ_IFF - rule, iff introduction, converts conjunction to iff-formula
+
+CONJ_IFF: thm -> thm
+
+If-and-only-if introduction
+
+       (A ==> B)  /\   (B ==> A)
+    ------------------------------
+	       A <=> B

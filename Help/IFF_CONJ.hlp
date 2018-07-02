@@ -1,0 +1,9 @@
+IFF_CONJ - rule, iff elimination, converts iff-formula to conjunction
+
+IFF_CONJ: thm -> thm
+
+If-and-only-if elimination
+
+	      A <=> B
+    ---------------------------
+      (A ==> B)  /\  (B ==> A)

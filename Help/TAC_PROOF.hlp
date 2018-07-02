@@ -1,0 +1,10 @@
+TAC_PROOF - solves a goal using a tactic, returns a theorem
+
+TAC_PROOF: (goal * tactic) -> thm
+
+
+FAILURE CONDITIONS
+
+tactic fails
+tactic returns a non-empty subgoal list
+validation fails
